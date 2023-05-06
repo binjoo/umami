@@ -35,8 +35,6 @@ export default function useLocale() {
 
     setItem(LOCALE_CONFIG, value);
 
-    document.getElementById('__next')?.setAttribute('dir', getTextDirection(value));
-
     if (locale !== value) {
       setLocale(value);
     } else {
@@ -51,7 +49,7 @@ export default function useLocale() {
   }, [locale]);
 
   useEffect(() => {
-    const url = new URL(window?.location?.href);
+    const url = new URL(window.location.href);
     const locale = url.searchParams.get('locale');
 
     if (locale) {

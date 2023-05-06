@@ -1,28 +1,36 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import useApi from 'hooks/useApi';
 import useUser from 'hooks/useUser';
+import useApi from 'hooks/useApi';
 
 export default function useRequireLogin() {
   const router = useRouter();
   const { get } = useApi();
   const { user, setUser } = useUser();
+  const [loading, setLoading] = useState(false);
+
+  async function loadUser() {
+    setLoading(true);
+
+    const { ok, data } = await get('/auth/verify');
+
+    if (!ok) {
+      await router.push('/login');
+      return null;
+    }
+
+    setUser(data);
+
+    setLoading(false);
+  }
 
   useEffect(() => {
-    async function loadUser() {
-      try {
-        const { user } = await get('/auth/verify');
-
-        setUser(user);
-      } catch {
-        await router.push('/login');
-      }
+    if (loading || user) {
+      return;
     }
 
-    if (!user) {
-      loadUser();
-    }
-  }, [user]);
+    loadUser();
+  }, [user, loading]);
 
-  return { user };
+  return { user, loading };
 }

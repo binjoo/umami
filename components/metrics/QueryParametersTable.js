@@ -1,47 +1,52 @@
 import { useState } from 'react';
+import { useIntl, defineMessages } from 'react-intl';
 import { safeDecodeURI } from 'next-basics';
+import Tag from 'components/common/Tag';
 import FilterButtons from 'components/common/FilterButtons';
-import { emptyFilter, paramFilter } from 'lib/filters';
-import { FILTER_RAW, FILTER_COMBINED } from 'lib/constants';
+import { paramFilter } from 'lib/filters';
 import MetricsTable from './MetricsTable';
-import useMessages from 'hooks/useMessages';
-import styles from './QueryParametersTable.module.css';
 
-const filters = {
-  [FILTER_RAW]: emptyFilter,
-  [FILTER_COMBINED]: paramFilter,
-};
+const FILTER_COMBINED = 0;
+const FILTER_RAW = 1;
 
-export function QueryParametersTable({ websiteId, showFilters, ...props }) {
+const messages = defineMessages({
+  combined: { id: 'metrics.filter.combined', defaultMessage: 'Combined' },
+  raw: { id: 'metrics.filter.raw', defaultMessage: 'Raw' },
+  views: { id: 'metrics.views', defaultMessage: 'Views' },
+  none: { id: 'label.none', defaultMessage: 'None' },
+  query: { id: 'metrics.query-parameters', defaultMessage: 'Query parameters' },
+});
+
+export default function QueryParametersTable({ websiteId, showFilters, ...props }) {
   const [filter, setFilter] = useState(FILTER_COMBINED);
-  const { formatMessage, labels } = useMessages();
+  const { formatMessage } = useIntl();
 
   const buttons = [
     {
-      label: formatMessage(labels.filterCombined),
-      key: FILTER_COMBINED,
+      label: formatMessage(messages.combined),
+      value: FILTER_COMBINED,
     },
-    { label: formatMessage(labels.filterRaw), key: FILTER_RAW },
+    { label: formatMessage(messages.raw), value: FILTER_RAW },
   ];
 
   return (
     <>
-      {showFilters && <FilterButtons items={buttons} selectedKey={filter} onSelect={setFilter} />}
+      {showFilters && <FilterButtons buttons={buttons} selected={filter} onClick={setFilter} />}
       <MetricsTable
         {...props}
-        title={formatMessage(labels.query)}
+        title={formatMessage(messages.query)}
         type="query"
-        metric={formatMessage(labels.views)}
+        metric={formatMessage(messages.views)}
         websiteId={websiteId}
-        dataFilter={filters[filter]}
+        dataFilter={filter !== FILTER_RAW ? paramFilter : null}
         renderLabel={({ x, p, v }) =>
           filter === FILTER_RAW ? (
             x
           ) : (
-            <div className={styles.item}>
-              <div className={styles.param}>{safeDecodeURI(p)}</div>
-              <div className={styles.value}>{safeDecodeURI(v)}</div>
-            </div>
+            <>
+              <Tag>{safeDecodeURI(p)}</Tag>
+              {safeDecodeURI(v)}
+            </>
           )
         }
         delay={0}
@@ -49,5 +54,3 @@ export function QueryParametersTable({ websiteId, showFilters, ...props }) {
     </>
   );
 }
-
-export default QueryParametersTable;

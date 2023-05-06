@@ -1,20 +1,14 @@
 {
-  "label.access-code": [
+  "label.accounts": [
     {
       "type": 0,
-      "value": "Access code"
+      "value": "கணக்குகள்"
     }
   ],
-  "label.actions": [
+  "label.add-account": [
     {
       "type": 0,
-      "value": "செயல்கள்"
-    }
-  ],
-  "label.activity-log": [
-    {
-      "type": 0,
-      "value": "Activity log"
+      "value": "கணக்கு சேர்க்க"
     }
   ],
   "label.add-website": [
@@ -23,7 +17,7 @@
       "value": "வலைத்தளத்தைச் சேர்க்க"
     }
   ],
-  "label.admin": [
+  "label.administrator": [
     {
       "type": 0,
       "value": "நிர்வாகியைச் சேர்க்க"
@@ -41,34 +35,16 @@
       "value": "All time"
     }
   ],
-  "label.analytics": [
+  "label.all-websites": [
     {
       "type": 0,
-      "value": "Analytics"
-    }
-  ],
-  "label.average-visit-time": [
-    {
-      "type": 0,
-      "value": "சராசரி வருகை நேரம்"
+      "value": "அனைத்து வலைத்தளங்களும்"
     }
   ],
   "label.back": [
     {
       "type": 0,
       "value": "பின்னால்"
-    }
-  ],
-  "label.bounce-rate": [
-    {
-      "type": 0,
-      "value": "துள்ளல் விகிதம்"
-    }
-  ],
-  "label.browsers": [
-    {
-      "type": 0,
-      "value": "உலாவிகள்"
     }
   ],
   "label.cancel": [
@@ -83,58 +59,16 @@
       "value": "கடவுச்சொல்லை மாற்று"
     }
   ],
-  "label.cities": [
-    {
-      "type": 0,
-      "value": "Cities"
-    }
-  ],
-  "label.clear-all": [
-    {
-      "type": 0,
-      "value": "Clear all"
-    }
-  ],
-  "label.confirm": [
-    {
-      "type": 0,
-      "value": "Confirm"
-    }
-  ],
   "label.confirm-password": [
     {
       "type": 0,
       "value": "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
     }
   ],
-  "label.continue": [
+  "label.copy-to-clipboard": [
     {
       "type": 0,
-      "value": "Continue"
-    }
-  ],
-  "label.countries": [
-    {
-      "type": 0,
-      "value": "நாடுகள்"
-    }
-  ],
-  "label.create-team": [
-    {
-      "type": 0,
-      "value": "Create team"
-    }
-  ],
-  "label.create-user": [
-    {
-      "type": 0,
-      "value": "Create user"
-    }
-  ],
-  "label.created": [
-    {
-      "type": 0,
-      "value": "Created"
+      "value": "கிளிப்போர்டுக்கு நகலெடுக்கவும்"
     }
   ],
   "label.current-password": [
@@ -155,12 +89,6 @@
       "value": "முகப்பு"
     }
   ],
-  "label.data": [
-    {
-      "type": 0,
-      "value": "Data"
-    }
-  ],
   "label.date-range": [
     {
       "type": 0,
@@ -179,40 +107,16 @@
       "value": "அழி"
     }
   ],
-  "label.delete-team": [
+  "label.delete-account": [
     {
       "type": 0,
-      "value": "Delete team"
-    }
-  ],
-  "label.delete-user": [
-    {
-      "type": 0,
-      "value": "Delete user"
+      "value": "கணக்கை நீக்குக"
     }
   ],
   "label.delete-website": [
     {
       "type": 0,
       "value": "வலைத்தளத்தை நீக்கு"
-    }
-  ],
-  "label.desktop": [
-    {
-      "type": 0,
-      "value": "மேசை கணினி"
-    }
-  ],
-  "label.details": [
-    {
-      "type": 0,
-      "value": "Details"
-    }
-  ],
-  "label.devices": [
-    {
-      "type": 0,
-      "value": "சாதனங்கள்"
     }
   ],
   "label.dismiss": [
@@ -233,10 +137,16 @@
       "value": "திருத்துதல்"
     }
   ],
-  "label.edit-dashboard": [
+  "label.edit-account": [
     {
       "type": 0,
-      "value": "Edit dashboard"
+      "value": "கணக்கைத் திருத்து"
+    }
+  ],
+  "label.edit-website": [
+    {
+      "type": 0,
+      "value": "வலைத்தளத்தைத் திருத்து"
     }
   ],
   "label.enable-share-url": [
@@ -245,52 +155,22 @@
       "value": "கள முகவரியை பகிரலாம்"
     }
   ],
-  "label.events": [
+  "label.invalid": [
     {
       "type": 0,
-      "value": "நிகழ்வுகள்"
+      "value": "தவறானது"
     }
   ],
-  "label.filter-combined": [
+  "label.invalid-domain": [
     {
       "type": 0,
-      "value": "ஒருங்கிணைந்த"
-    }
-  ],
-  "label.filter-raw": [
-    {
-      "type": 0,
-      "value": "மூல"
-    }
-  ],
-  "label.join": [
-    {
-      "type": 0,
-      "value": "Join"
-    }
-  ],
-  "label.join-team": [
-    {
-      "type": 0,
-      "value": "Join team"
+      "value": "தவறான கள முகவரி"
     }
   ],
   "label.language": [
     {
       "type": 0,
       "value": "Language"
-    }
-  ],
-  "label.languages": [
-    {
-      "type": 0,
-      "value": "Languages"
-    }
-  ],
-  "label.laptop": [
-    {
-      "type": 0,
-      "value": "மடிக்கணினி"
     }
   ],
   "label.last-days": [
@@ -321,16 +201,14 @@
       "value": " மணி"
     }
   ],
-  "label.leave": [
+  "label.logged-in-as": [
+    {
+      "type": 1,
+      "value": "username"
+    },
     {
       "type": 0,
-      "value": "Leave"
-    }
-  ],
-  "label.leave-team": [
-    {
-      "type": 0,
-      "value": "Leave team"
+      "value": " உள்நுழைந்துள்ளீர்"
     }
   ],
   "label.login": [
@@ -343,18 +221,6 @@
     {
       "type": 0,
       "value": "வெளியேறு"
-    }
-  ],
-  "label.members": [
-    {
-      "type": 0,
-      "value": "Members"
-    }
-  ],
-  "label.mobile": [
-    {
-      "type": 0,
-      "value": "கைபேசி"
     }
   ],
   "label.more": [
@@ -381,28 +247,10 @@
       "value": "None"
     }
   ],
-  "label.operating-systems": [
-    {
-      "type": 0,
-      "value": "இயக்க முறைமைகள்"
-    }
-  ],
   "label.owner": [
     {
       "type": 0,
       "value": "Owner"
-    }
-  ],
-  "label.page-views": [
-    {
-      "type": 0,
-      "value": "பக்க காட்சிகள்"
-    }
-  ],
-  "label.pages": [
-    {
-      "type": 0,
-      "value": "பக்கங்கள்"
     }
   ],
   "label.password": [
@@ -411,14 +259,10 @@
       "value": "கடவுச்சொல்"
     }
   ],
-  "label.powered-by": [
-    {
-      "type": 1,
-      "value": "name"
-    },
+  "label.passwords-dont-match": [
     {
       "type": 0,
-      "value": " ஆல் இயக்கப்படுகிறது"
+      "value": "இருக்கடவுச்சொல் பொருந்தவில்லை"
     }
   ],
   "label.profile": [
@@ -427,52 +271,22 @@
       "value": "சுயவிவரம்"
     }
   ],
-  "label.queries": [
-    {
-      "type": 0,
-      "value": "Queries"
-    }
-  ],
-  "label.query-parameters": [
-    {
-      "type": 0,
-      "value": "Query parameters"
-    }
-  ],
   "label.realtime": [
     {
       "type": 0,
       "value": "தற்போதைய"
     }
   ],
-  "label.referrers": [
+  "label.realtime-logs": [
     {
       "type": 0,
-      "value": "குறிப்பிடுவோர்"
+      "value": "தற்போதைய பதிவுகள்"
     }
   ],
   "label.refresh": [
     {
       "type": 0,
       "value": "புதுப்பிப்பு"
-    }
-  ],
-  "label.regenerate": [
-    {
-      "type": 0,
-      "value": "Regenerate"
-    }
-  ],
-  "label.regions": [
-    {
-      "type": 0,
-      "value": "Regions"
-    }
-  ],
-  "label.remove": [
-    {
-      "type": 0,
-      "value": "Remove"
     }
   ],
   "label.required": [
@@ -493,34 +307,10 @@
       "value": "Reset statistics"
     }
   ],
-  "label.role": [
-    {
-      "type": 0,
-      "value": "Role"
-    }
-  ],
   "label.save": [
     {
       "type": 0,
       "value": "சேமி"
-    }
-  ],
-  "label.screens": [
-    {
-      "type": 0,
-      "value": "Screens"
-    }
-  ],
-  "label.select-website": [
-    {
-      "type": 0,
-      "value": "Select website"
-    }
-  ],
-  "label.sessions": [
-    {
-      "type": 0,
-      "value": "Sessions"
     }
   ],
   "label.settings": [
@@ -539,48 +329,6 @@
     {
       "type": 0,
       "value": "ஒரு நாள்"
-    }
-  ],
-  "label.tablet": [
-    {
-      "type": 0,
-      "value": "கையடக்க கணினி"
-    }
-  ],
-  "label.team": [
-    {
-      "type": 0,
-      "value": "Team"
-    }
-  ],
-  "label.team-guest": [
-    {
-      "type": 0,
-      "value": "Team guest"
-    }
-  ],
-  "label.team-id": [
-    {
-      "type": 0,
-      "value": "Team ID"
-    }
-  ],
-  "label.team-member": [
-    {
-      "type": 0,
-      "value": "Team member"
-    }
-  ],
-  "label.team-owner": [
-    {
-      "type": 0,
-      "value": "Team owner"
-    }
-  ],
-  "label.teams": [
-    {
-      "type": 0,
-      "value": "Teams"
     }
   ],
   "label.theme": [
@@ -613,22 +361,10 @@
       "value": "நேர மண்டலம்"
     }
   ],
-  "label.title": [
-    {
-      "type": 0,
-      "value": "Title"
-    }
-  ],
   "label.today": [
     {
       "type": 0,
       "value": "இன்று"
-    }
-  ],
-  "label.toggle-charts": [
-    {
-      "type": 0,
-      "value": "Toggle charts"
     }
   ],
   "label.tracking-code": [
@@ -637,22 +373,10 @@
       "value": "கண்காணிப்பு குறியீடு"
     }
   ],
-  "label.unique-visitors": [
-    {
-      "type": 0,
-      "value": "தனிப்பட்ட பார்வையாளர்கள்"
-    }
-  ],
   "label.unknown": [
     {
       "type": 0,
       "value": "தெரியாத"
-    }
-  ],
-  "label.user": [
-    {
-      "type": 0,
-      "value": "User"
     }
   ],
   "label.username": [
@@ -661,52 +385,16 @@
       "value": "பயனர்பெயர்"
     }
   ],
-  "label.users": [
-    {
-      "type": 0,
-      "value": "Users"
-    }
-  ],
-  "label.view": [
-    {
-      "type": 0,
-      "value": "View"
-    }
-  ],
   "label.view-details": [
     {
       "type": 0,
       "value": "விபரங்களை பார்"
     }
   ],
-  "label.views": [
-    {
-      "type": 0,
-      "value": "பார்வைகள்"
-    }
-  ],
-  "label.visitors": [
-    {
-      "type": 0,
-      "value": "பார்வையாளர்கள்"
-    }
-  ],
-  "label.website-id": [
-    {
-      "type": 0,
-      "value": "Website ID"
-    }
-  ],
   "label.websites": [
     {
       "type": 0,
       "value": "வலைத்தளங்கள்"
-    }
-  ],
-  "label.yesterday": [
-    {
-      "type": 0,
-      "value": "Yesterday"
     }
   ],
   "message.active-users": [
@@ -757,20 +445,6 @@
       "value": " நீக்க விரும்புகிறீர்களா?"
     }
   ],
-  "message.confirm-leave": [
-    {
-      "type": 0,
-      "value": "Are you sure you want to leave "
-    },
-    {
-      "type": 1,
-      "value": "target"
-    },
-    {
-      "type": 0,
-      "value": "?"
-    }
-  ],
   "message.confirm-reset": [
     {
       "type": 0,
@@ -785,36 +459,40 @@
       "value": "'s statistics?"
     }
   ],
-  "message.delete-website": [
+  "message.copied": [
     {
       "type": 0,
-      "value": "வலைத்தளத்தை நீக்கு"
+      "value": "நகலெடுக்கப்பட்டது!"
     }
   ],
-  "message.delete-website-warning": [
+  "message.delete-warning": [
     {
       "type": 0,
       "value": "தொடர்புடைய எல்லா தரவும் நீக்கப்படும்."
     }
   ],
-  "message.error": [
+  "message.edit-dashboard": [
+    {
+      "type": 0,
+      "value": "Edit dashboard"
+    }
+  ],
+  "message.failure": [
     {
       "type": 0,
       "value": "ஏதோ தவறு நடந்துவிட்டது."
     }
   ],
-  "message.event-log": [
-    {
-      "type": 1,
-      "value": "event"
-    },
+  "message.get-share-url": [
     {
       "type": 0,
-      "value": " on "
-    },
+      "value": "கள முகவரியை ஐப் பெறுக"
+    }
+  ],
+  "message.get-tracking-code": [
     {
-      "type": 1,
-      "value": "url"
+      "type": 0,
+      "value": "கண்காணிப்பு குறியீட்டைப் பெறுக"
     }
   ],
   "message.go-to-settings": [
@@ -829,109 +507,7 @@
       "value": "தவறான பயனர்பெயர் / கடவுச்சொல்."
     }
   ],
-  "message.invalid-domain": [
-    {
-      "type": 0,
-      "value": "தவறான கள முகவரி"
-    }
-  ],
-  "message.min-password-length": [
-    {
-      "type": 0,
-      "value": "Minimum length of "
-    },
-    {
-      "type": 1,
-      "value": "n"
-    },
-    {
-      "type": 0,
-      "value": " characters"
-    }
-  ],
-  "message.no-data-available": [
-    {
-      "type": 0,
-      "value": "தரவு எதுவும் கிடைக்கவில்லை."
-    }
-  ],
-  "message.no-match-password": [
-    {
-      "type": 0,
-      "value": "இருக்கடவுச்சொல் பொருந்தவில்லை"
-    }
-  ],
-  "message.no-teams": [
-    {
-      "type": 0,
-      "value": "You have not created any teams."
-    }
-  ],
-  "message.no-users": [
-    {
-      "type": 0,
-      "value": "There are no users."
-    }
-  ],
-  "message.page-not-found": [
-    {
-      "type": 0,
-      "value": "பக்கம் கிடைக்கவில்லை."
-    }
-  ],
-  "message.reset-website": [
-    {
-      "type": 0,
-      "value": "Reset statistics"
-    }
-  ],
-  "message.reset-website-warning": [
-    {
-      "type": 0,
-      "value": "All statistics for this website will be deleted, but your tracking code will remain intact."
-    }
-  ],
-  "message.saved": [
-    {
-      "type": 0,
-      "value": "வெற்றிகரமாக சேமிக்கப்பட்டது."
-    }
-  ],
-  "message.share-url": [
-    {
-      "type": 1,
-      "value": "target"
-    },
-    {
-      "type": 0,
-      "value": " இது பொதுவில் பகிரும் வலைத்தள முகவரி."
-    }
-  ],
-  "message.team-already-member": [
-    {
-      "type": 0,
-      "value": "You are already a member of the team."
-    }
-  ],
-  "message.team-not-found": [
-    {
-      "type": 0,
-      "value": "Team not found."
-    }
-  ],
-  "message.tracking-code": [
-    {
-      "type": 0,
-      "value": "கண்காணிப்பு குறியீடு"
-    }
-  ],
-  "message.user-deleted": [
-    {
-      "type": 0,
-      "value": "User deleted."
-    }
-  ],
-  "message.visitor-log": [
+  "message.log.visitor": [
     {
       "type": 1,
       "value": "country"
@@ -965,22 +541,258 @@
       "value": "லில் பயன்படுத்துகிறார்"
     }
   ],
-  "messages.no-team-websites": [
+  "message.new-version-available": [
     {
       "type": 0,
-      "value": "This team does not have any websites."
+      "value": "umami "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    },
+    {
+      "type": 0,
+      "value": " இன் புதிய பதிப்பு கிடைக்கும்!"
     }
   ],
-  "messages.no-websites-configured": [
+  "message.no-data-available": [
+    {
+      "type": 0,
+      "value": "தரவு எதுவும் கிடைக்கவில்லை."
+    }
+  ],
+  "message.no-websites-configured": [
     {
       "type": 0,
       "value": "உங்களிடம் எந்த வலைத்தளங்களும் கட்டமைக்கப்படவில்லை."
     }
   ],
-  "messages.team-websites-info": [
+  "message.page-not-found": [
     {
       "type": 0,
-      "value": "Websites can be viewed by anyone on the team."
+      "value": "பக்கம் கிடைக்கவில்லை."
+    }
+  ],
+  "message.powered-by": [
+    {
+      "type": 1,
+      "value": "name"
+    },
+    {
+      "type": 0,
+      "value": " ஆல் இயக்கப்படுகிறது"
+    }
+  ],
+  "message.reset-warning": [
+    {
+      "type": 0,
+      "value": "All statistics for this website will be deleted, but your tracking code will remain intact."
+    }
+  ],
+  "message.save-success": [
+    {
+      "type": 0,
+      "value": "வெற்றிகரமாக சேமிக்கப்பட்டது."
+    }
+  ],
+  "message.share-url": [
+    {
+      "type": 1,
+      "value": "target"
+    },
+    {
+      "type": 0,
+      "value": " இது பொதுவில் பகிரும் வலைத்தள முகவரி."
+    }
+  ],
+  "message.toggle-charts": [
+    {
+      "type": 0,
+      "value": "Toggle charts"
+    }
+  ],
+  "message.track-stats": [
+    {
+      "type": 1,
+      "value": "target"
+    },
+    {
+      "type": 0,
+      "value": "க்கான புள்ளிவிவரங்களைக் கண்காணிக்க, "
+    },
+    {
+      "type": 1,
+      "value": "head"
+    },
+    {
+      "type": 0,
+      "value": "ல் பின்வரும் குறியீட்டை வைக்கவும்."
+    }
+  ],
+  "message.type-delete": [
+    {
+      "type": 0,
+      "value": "உறுதிப்படுத்த கீழே உள்ள பெட்டியில் "
+    },
+    {
+      "type": 1,
+      "value": "delete"
+    },
+    {
+      "type": 0,
+      "value": " என தட்டச்சு செய்க."
+    }
+  ],
+  "message.type-reset": [
+    {
+      "type": 0,
+      "value": "உறுதிப்படுத்த கீழே உள்ள பெட்டியில் "
+    },
+    {
+      "type": 1,
+      "value": "reset"
+    },
+    {
+      "type": 0,
+      "value": " என தட்டச்சு செய்க."
+    }
+  ],
+  "metrics.actions": [
+    {
+      "type": 0,
+      "value": "செயல்கள்"
+    }
+  ],
+  "metrics.average-visit-time": [
+    {
+      "type": 0,
+      "value": "சராசரி வருகை நேரம்"
+    }
+  ],
+  "metrics.bounce-rate": [
+    {
+      "type": 0,
+      "value": "துள்ளல் விகிதம்"
+    }
+  ],
+  "metrics.browsers": [
+    {
+      "type": 0,
+      "value": "உலாவிகள்"
+    }
+  ],
+  "metrics.countries": [
+    {
+      "type": 0,
+      "value": "நாடுகள்"
+    }
+  ],
+  "metrics.device.desktop": [
+    {
+      "type": 0,
+      "value": "மேசை கணினி"
+    }
+  ],
+  "metrics.device.laptop": [
+    {
+      "type": 0,
+      "value": "மடிக்கணினி"
+    }
+  ],
+  "metrics.device.mobile": [
+    {
+      "type": 0,
+      "value": "கைபேசி"
+    }
+  ],
+  "metrics.device.tablet": [
+    {
+      "type": 0,
+      "value": "கையடக்க கணினி"
+    }
+  ],
+  "metrics.devices": [
+    {
+      "type": 0,
+      "value": "சாதனங்கள்"
+    }
+  ],
+  "metrics.events": [
+    {
+      "type": 0,
+      "value": "நிகழ்வுகள்"
+    }
+  ],
+  "metrics.filter.combined": [
+    {
+      "type": 0,
+      "value": "ஒருங்கிணைந்த"
+    }
+  ],
+  "metrics.filter.raw": [
+    {
+      "type": 0,
+      "value": "மூல"
+    }
+  ],
+  "metrics.languages": [
+    {
+      "type": 0,
+      "value": "Languages"
+    }
+  ],
+  "metrics.operating-systems": [
+    {
+      "type": 0,
+      "value": "இயக்க முறைமைகள்"
+    }
+  ],
+  "metrics.page-views": [
+    {
+      "type": 0,
+      "value": "பக்க காட்சிகள்"
+    }
+  ],
+  "metrics.pages": [
+    {
+      "type": 0,
+      "value": "பக்கங்கள்"
+    }
+  ],
+  "metrics.query-parameters": [
+    {
+      "type": 0,
+      "value": "Query parameters"
+    }
+  ],
+  "metrics.referrers": [
+    {
+      "type": 0,
+      "value": "குறிப்பிடுவோர்"
+    }
+  ],
+  "metrics.screens": [
+    {
+      "type": 0,
+      "value": "Screens"
+    }
+  ],
+  "metrics.unique-visitors": [
+    {
+      "type": 0,
+      "value": "தனிப்பட்ட பார்வையாளர்கள்"
+    }
+  ],
+  "metrics.views": [
+    {
+      "type": 0,
+      "value": "பார்வைகள்"
+    }
+  ],
+  "metrics.visitors": [
+    {
+      "type": 0,
+      "value": "பார்வையாளர்கள்"
     }
   ]
 }

@@ -4,15 +4,11 @@ const del = require('del');
 const prettier = require('prettier');
 
 const src = path.resolve(__dirname, '../lang');
-const dest = path.resolve(__dirname, '../build/messages');
+const dest = path.resolve(__dirname, '../build');
 const files = fs.readdirSync(src);
 
-del.sync([path.join(dest)]);
+del.sync([path.join(dest, '*.json')]);
 
-/*
-This script takes the files from the `lang` folder and formats them into
-the format that format-js expects.
- */
 async function run() {
   await fs.ensureDir(dest);
 

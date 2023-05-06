@@ -1,19 +1,32 @@
 .title {
-  display: flex;
-  flex-direction: row;
+  color: var(--gray900);
+  font-size: var(--font-size-large);
+  line-height: var(--font-size-xlarge);
   align-items: center;
-  gap: 10px;
-  font-size: 24px;
-  font-weight: 700;
+  display: flex;
+  max-width: 100%;
   overflow: hidden;
-  height: 100px;
 }
 
-.info {
+.titleLink {
+  max-width: 100%;
+}
+
+.link {
+  font-weight: 600;
+}
+
+.active {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 30px;
-  min-height: 0;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 992px) {
+  .active {
+    justify-content: flex-start;
+  }
+
+  a.link {
+    display: none;
+  }
 }

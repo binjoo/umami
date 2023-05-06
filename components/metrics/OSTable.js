@@ -1,10 +1,9 @@
+import React from 'react';
 import MetricsTable from './MetricsTable';
+import { FormattedMessage } from 'react-intl';
 import FilterLink from 'components/common/FilterLink';
-import useMessages from 'hooks/useMessages';
 
-export function OSTable({ websiteId, ...props }) {
-  const { formatMessage, labels } = useMessages();
-
+export default function OSTable({ websiteId, ...props }) {
   function renderLink({ x: os }) {
     return <FilterLink id="os" value={os} />;
   }
@@ -12,13 +11,11 @@ export function OSTable({ websiteId, ...props }) {
   return (
     <MetricsTable
       {...props}
-      websiteId={websiteId}
-      title={formatMessage(labels.os)}
-      metric={formatMessage(labels.visitors)}
-      renderLabel={renderLink}
+      title={<FormattedMessage id="metrics.operating-systems" defaultMessage="Operating system" />}
       type="os"
+      metric={<FormattedMessage id="metrics.visitors" defaultMessage="Visitors" />}
+      renderLabel={renderLink}
+      websiteId={websiteId}
     />
   );
 }
-
-export default OSTable;

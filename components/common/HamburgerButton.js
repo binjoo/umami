@@ -1,61 +1,44 @@
-import { Button, Icon } from 'react-basics';
+import Button from 'components/common/Button';
+import XMark from 'assets/xmark.svg';
+import Bars from 'assets/bars.svg';
 import { useState } from 'react';
+import styles from './HamburgerButton.module.css';
 import MobileMenu from './MobileMenu';
-import Icons from 'components/icons';
-import useMessages from 'hooks/useMessages';
-import useConfig from 'hooks/useConfig';
+import { FormattedMessage } from 'react-intl';
 
-export function HamburgerButton() {
-  const { formatMessage, labels } = useMessages();
+const menuItems = [
+  {
+    label: <FormattedMessage id="label.dashboard" defaultMessage="Dashboard" />,
+    value: '/dashboard',
+  },
+  { label: <FormattedMessage id="label.realtime" defaultMessage="Realtime" />, value: '/realtime' },
+  { label: <FormattedMessage id="label.settings" defaultMessage="Settings" />, value: '/settings' },
+  {
+    label: <FormattedMessage id="label.profile" defaultMessage="Profile" />,
+    value: '/settings/profile',
+  },
+  { label: <FormattedMessage id="label.logout" defaultMessage="Logout" />, value: '/logout' },
+];
+
+export default function HamburgerButton() {
   const [active, setActive] = useState(false);
-  const { cloudMode } = useConfig();
 
-  const menuItems = [
-    {
-      label: formatMessage(labels.dashboard),
-      url: '/dashboard',
-    },
-    { label: formatMessage(labels.realtime), url: '/realtime' },
-    !cloudMode && {
-      label: formatMessage(labels.settings),
-      url: '/settings',
-      children: [
-        {
-          label: formatMessage(labels.websites),
-          url: '/settings/websites',
-        },
-        {
-          label: formatMessage(labels.teams),
-          url: '/settings/teams',
-        },
-        {
-          label: formatMessage(labels.users),
-          url: '/settings/users',
-        },
-        {
-          label: formatMessage(labels.profile),
-          url: '/settings/profile',
-        },
-      ],
-    },
-    cloudMode && {
-      label: formatMessage(labels.profile),
-      url: '/settings/profile',
-    },
-    !cloudMode && { label: formatMessage(labels.logout), url: '/logout' },
-  ].filter(n => n);
+  function handleClick() {
+    setActive(state => !state);
+  }
 
-  const handleClick = () => setActive(state => !state);
-  const handleClose = () => setActive(false);
+  function handleClose() {
+    setActive(false);
+  }
 
   return (
     <>
-      <Button variant="quiet" onClick={handleClick}>
-        <Icon>{active ? <Icons.Close /> : <Icons.Menu />}</Icon>
-      </Button>
+      <Button
+        className={styles.button}
+        icon={active ? <XMark /> : <Bars />}
+        onClick={handleClick}
+      />
       {active && <MobileMenu items={menuItems} onClose={handleClose} />}
     </>
   );
 }
-
-export default HamburgerButton;

@@ -1,25 +1,20 @@
 .row {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.row.inactive {
-  color: var(--base500);
+.row .inactive {
+  color: var(--gray500);
 }
 
-.row.inactive img {
-  opacity: 0.35;
-}
-
-.row.active {
-  color: var(--base900);
+.row .active {
+  color: var(--gray900);
   font-weight: 600;
 }
 
 .row .link {
   display: none;
-  margin-inline-start: 20px;
+  margin-left: 20px;
 }
 
 .row .label {

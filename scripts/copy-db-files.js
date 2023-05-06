@@ -1,13 +1,9 @@
-/* eslint-disable no-console */
 require('dotenv').config();
 const fse = require('fs-extra');
 const path = require('path');
 const del = require('del');
 
 function getDatabaseType(url = process.env.DATABASE_URL) {
-  console.log('TRACKER_SCRIPT_NAME', process.env.TRACKER_SCRIPT_NAME);
-  console.log('HASH_SALT', process.env.HASH_SALT);
-  console.log('DATABASE_URL', process.env.DATABASE_URL);
   const type = process.env.DATABASE_TYPE || (url && url.split(':')[0]);
 
   if (type === 'postgres') {

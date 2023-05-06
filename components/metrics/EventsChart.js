@@ -1,44 +1,46 @@
-import { useMemo } from 'react';
-import { Loading } from 'react-basics';
+import React, { useMemo } from 'react';
 import { colord } from 'colord';
 import BarChart from './BarChart';
 import { getDateArray, getDateLength } from 'lib/date';
-import useApi from 'hooks/useApi';
+import useFetch from 'hooks/useFetch';
 import useDateRange from 'hooks/useDateRange';
 import useTimezone from 'hooks/useTimezone';
 import usePageQuery from 'hooks/usePageQuery';
 import { EVENT_COLORS } from 'lib/constants';
 
-export function EventsChart({ websiteId, className, token }) {
-  const { get, useQuery } = useApi();
+export default function EventsChart({ websiteId, className, token }) {
   const [{ startDate, endDate, unit, modified }] = useDateRange(websiteId);
   const [timezone] = useTimezone();
   const {
     query: { url, eventName },
   } = usePageQuery();
 
-  const { data, isLoading } = useQuery(['events', websiteId, modified, eventName], () =>
-    get(`/websites/${websiteId}/events`, {
-      startAt: +startDate,
-      endAt: +endDate,
-      unit,
-      timezone,
-      url,
-      eventName,
-      token,
-    }),
+  const { data, loading } = useFetch(
+    `/websites/${websiteId}/events`,
+    {
+      params: {
+        start_at: +startDate,
+        end_at: +endDate,
+        unit,
+        tz: timezone,
+        url,
+        event_name: eventName,
+        token,
+      },
+    },
+    [modified, eventName],
   );
 
   const datasets = useMemo(() => {
     if (!data) return [];
-    if (isLoading) return data;
+    if (loading) return data;
 
     const map = data.reduce((obj, { x, t, y }) => {
       if (!obj[x]) {
         obj[x] = [];
       }
 
-      obj[x].push({ x: t, y });
+      obj[x].push({ t, y });
 
       return obj;
     }, {});
@@ -58,23 +60,29 @@ export function EventsChart({ websiteId, className, token }) {
         borderWidth: 1,
       };
     });
-  }, [data, isLoading, startDate, endDate, unit]);
+  }, [data, loading]);
 
-  if (isLoading) {
-    return <Loading icon="dots" />;
+  function handleUpdate(chart) {
+    chart.data.datasets = datasets;
+
+    chart.update();
+  }
+
+  if (!data) {
+    return null;
   }
 
   return (
     <BarChart
+      chartId={`events-${websiteId}`}
       className={className}
       datasets={datasets}
       unit={unit}
       height={300}
       records={getDateLength(startDate, endDate, unit)}
-      loading={isLoading}
+      onUpdate={handleUpdate}
+      loading={loading}
       stacked
     />
   );
 }
-
-export default EventsChart;

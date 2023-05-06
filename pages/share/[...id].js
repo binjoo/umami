@@ -1,6 +1,7 @@
+import React from 'react';
 import { useRouter } from 'next/router';
-import ShareLayout from 'components/layout/ShareLayout';
-import WebsiteDetails from 'components/pages/websites/WebsiteDetails';
+import Layout from 'components/layout/Layout';
+import WebsiteDetails from 'components/pages/WebsiteDetails';
 import useShareToken from 'hooks/useShareToken';
 
 export default function SharePage() {
@@ -14,8 +15,8 @@ export default function SharePage() {
   }
 
   return (
-    <ShareLayout>
-      <WebsiteDetails websiteId={shareToken.websiteId} />
-    </ShareLayout>
+    <Layout>
+      <WebsiteDetails websiteId={shareToken.id} />
+    </Layout>
   );
 }

@@ -1,18 +1,17 @@
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 import classNames from 'classnames';
 import { colord } from 'colord';
-import HoverTooltip from 'components/common/HoverTooltip';
-import { ISO_COUNTRIES, THEME_COLORS, MAP_FILE } from 'lib/constants';
 import useTheme from 'hooks/useTheme';
+import { ISO_COUNTRIES, THEME_COLORS, MAP_FILE } from 'lib/constants';
+import styles from './WorldMap.module.css';
 import useCountryNames from 'hooks/useCountryNames';
 import useLocale from 'hooks/useLocale';
-import { formatLongNumber } from 'lib/format';
-import { percentFilter } from 'lib/filters';
-import styles from './WorldMap.module.css';
 
-export function WorldMap({ data, className }) {
+function WorldMap({ data, className }) {
   const { basePath } = useRouter();
   const [tooltip, setTooltip] = useState();
   const [theme] = useTheme();
@@ -27,11 +26,10 @@ export function WorldMap({ data, className }) {
   );
   const { locale } = useLocale();
   const countryNames = useCountryNames(locale);
-  const metrics = useMemo(() => (data ? percentFilter(data) : []), [data]);
 
   function getFillColor(code) {
     if (code === 'AQ') return;
-    const country = metrics?.find(({ x }) => x === code);
+    const country = data?.find(({ x }) => x === code);
 
     if (!country) {
       return colors.fillColor;
@@ -48,8 +46,8 @@ export function WorldMap({ data, className }) {
 
   function handleHover(code) {
     if (code === 'AQ') return;
-    const country = metrics?.find(({ x }) => x === code);
-    setTooltip(`${countryNames[code]}: ${formatLongNumber(country?.y || 0)} visitors`);
+    const country = data?.find(({ x }) => x === code);
+    setTooltip(`${countryNames[code]}: ${country?.y || 0} visitors`);
   }
 
   return (
@@ -86,9 +84,20 @@ export function WorldMap({ data, className }) {
           </Geographies>
         </ZoomableGroup>
       </ComposableMap>
-      {tooltip && <HoverTooltip tooltip={tooltip} />}
+      <ReactTooltip id="world-map-tooltip">{tooltip}</ReactTooltip>
     </div>
   );
 }
+
+WorldMap.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.string,
+      y: PropTypes.number,
+      z: PropTypes.number,
+    }),
+  ),
+  className: PropTypes.string,
+};
 
 export default WorldMap;

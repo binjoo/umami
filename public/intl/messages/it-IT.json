@@ -1,20 +1,14 @@
 {
-  "label.access-code": [
+  "label.accounts": [
     {
       "type": 0,
-      "value": "Access code"
+      "value": "Utenti"
     }
   ],
-  "label.actions": [
+  "label.add-account": [
     {
       "type": 0,
-      "value": "Azioni"
-    }
-  ],
-  "label.activity-log": [
-    {
-      "type": 0,
-      "value": "Activity log"
+      "value": "Aggiungi utente"
     }
   ],
   "label.add-website": [
@@ -23,7 +17,7 @@
       "value": "Aggiungi sito"
     }
   ],
-  "label.admin": [
+  "label.administrator": [
     {
       "type": 0,
       "value": "Amministratore"
@@ -41,34 +35,16 @@
       "value": "Sempre"
     }
   ],
-  "label.analytics": [
+  "label.all-websites": [
     {
       "type": 0,
-      "value": "Analytics"
-    }
-  ],
-  "label.average-visit-time": [
-    {
-      "type": 0,
-      "value": "Tempo medio di visita"
+      "value": "Tutti i siti web"
     }
   ],
   "label.back": [
     {
       "type": 0,
       "value": "Indietro"
-    }
-  ],
-  "label.bounce-rate": [
-    {
-      "type": 0,
-      "value": "Frequenza di rimbalzo"
-    }
-  ],
-  "label.browsers": [
-    {
-      "type": 0,
-      "value": "Browser"
     }
   ],
   "label.cancel": [
@@ -83,58 +59,16 @@
       "value": "Modifica password"
     }
   ],
-  "label.cities": [
-    {
-      "type": 0,
-      "value": "Cities"
-    }
-  ],
-  "label.clear-all": [
-    {
-      "type": 0,
-      "value": "Clear all"
-    }
-  ],
-  "label.confirm": [
-    {
-      "type": 0,
-      "value": "Confirm"
-    }
-  ],
   "label.confirm-password": [
     {
       "type": 0,
       "value": "Conferma password"
     }
   ],
-  "label.continue": [
+  "label.copy-to-clipboard": [
     {
       "type": 0,
-      "value": "Continue"
-    }
-  ],
-  "label.countries": [
-    {
-      "type": 0,
-      "value": "Nazioni"
-    }
-  ],
-  "label.create-team": [
-    {
-      "type": 0,
-      "value": "Create team"
-    }
-  ],
-  "label.create-user": [
-    {
-      "type": 0,
-      "value": "Create user"
-    }
-  ],
-  "label.created": [
-    {
-      "type": 0,
-      "value": "Created"
+      "value": "Copia"
     }
   ],
   "label.current-password": [
@@ -155,12 +89,6 @@
       "value": "Pannello di Controllo"
     }
   ],
-  "label.data": [
-    {
-      "type": 0,
-      "value": "Data"
-    }
-  ],
   "label.date-range": [
     {
       "type": 0,
@@ -179,40 +107,16 @@
       "value": "Elimina"
     }
   ],
-  "label.delete-team": [
+  "label.delete-account": [
     {
       "type": 0,
-      "value": "Delete team"
-    }
-  ],
-  "label.delete-user": [
-    {
-      "type": 0,
-      "value": "Delete user"
+      "value": "Elimina account"
     }
   ],
   "label.delete-website": [
     {
       "type": 0,
       "value": "Elimina sito"
-    }
-  ],
-  "label.desktop": [
-    {
-      "type": 0,
-      "value": "Desktop"
-    }
-  ],
-  "label.details": [
-    {
-      "type": 0,
-      "value": "Details"
-    }
-  ],
-  "label.devices": [
-    {
-      "type": 0,
-      "value": "Dispositivi"
     }
   ],
   "label.dismiss": [
@@ -233,10 +137,16 @@
       "value": "Modifica"
     }
   ],
-  "label.edit-dashboard": [
+  "label.edit-account": [
     {
       "type": 0,
-      "value": "Edit dashboard"
+      "value": "Modifica account"
+    }
+  ],
+  "label.edit-website": [
+    {
+      "type": 0,
+      "value": "Modifica sito"
     }
   ],
   "label.enable-share-url": [
@@ -245,52 +155,22 @@
       "value": "Abilita URL di condivisione"
     }
   ],
-  "label.events": [
+  "label.invalid": [
     {
       "type": 0,
-      "value": "Eventi"
+      "value": "Non valido"
     }
   ],
-  "label.filter-combined": [
+  "label.invalid-domain": [
     {
       "type": 0,
-      "value": "Aggregati"
-    }
-  ],
-  "label.filter-raw": [
-    {
-      "type": 0,
-      "value": "Raw"
-    }
-  ],
-  "label.join": [
-    {
-      "type": 0,
-      "value": "Join"
-    }
-  ],
-  "label.join-team": [
-    {
-      "type": 0,
-      "value": "Join team"
+      "value": "Dominio non valido"
     }
   ],
   "label.language": [
     {
       "type": 0,
       "value": "Lingua"
-    }
-  ],
-  "label.languages": [
-    {
-      "type": 0,
-      "value": "Lingue"
-    }
-  ],
-  "label.laptop": [
-    {
-      "type": 0,
-      "value": "Portatile"
     }
   ],
   "label.last-days": [
@@ -321,16 +201,14 @@
       "value": " ore"
     }
   ],
-  "label.leave": [
+  "label.logged-in-as": [
     {
       "type": 0,
-      "value": "Leave"
-    }
-  ],
-  "label.leave-team": [
+      "value": "Ciao "
+    },
     {
-      "type": 0,
-      "value": "Leave team"
+      "type": 1,
+      "value": "username"
     }
   ],
   "label.login": [
@@ -343,18 +221,6 @@
     {
       "type": 0,
       "value": "Esci"
-    }
-  ],
-  "label.members": [
-    {
-      "type": 0,
-      "value": "Members"
-    }
-  ],
-  "label.mobile": [
-    {
-      "type": 0,
-      "value": "Cellulare"
     }
   ],
   "label.more": [
@@ -381,28 +247,10 @@
       "value": "None"
     }
   ],
-  "label.operating-systems": [
-    {
-      "type": 0,
-      "value": "Sistemi operativi"
-    }
-  ],
   "label.owner": [
     {
       "type": 0,
       "value": "Proprietario"
-    }
-  ],
-  "label.page-views": [
-    {
-      "type": 0,
-      "value": "Visualizzazioni di pagina"
-    }
-  ],
-  "label.pages": [
-    {
-      "type": 0,
-      "value": "Pagine"
     }
   ],
   "label.password": [
@@ -411,14 +259,10 @@
       "value": "Password"
     }
   ],
-  "label.powered-by": [
+  "label.passwords-dont-match": [
     {
       "type": 0,
-      "value": "Powered by "
-    },
-    {
-      "type": 1,
-      "value": "name"
+      "value": "Le password non corrispondono"
     }
   ],
   "label.profile": [
@@ -427,52 +271,22 @@
       "value": "Profilo"
     }
   ],
-  "label.queries": [
-    {
-      "type": 0,
-      "value": "Queries"
-    }
-  ],
-  "label.query-parameters": [
-    {
-      "type": 0,
-      "value": "Query parameters"
-    }
-  ],
   "label.realtime": [
     {
       "type": 0,
       "value": "Tempo reale"
     }
   ],
-  "label.referrers": [
+  "label.realtime-logs": [
     {
       "type": 0,
-      "value": "Referrers"
+      "value": "Log in tempo reale"
     }
   ],
   "label.refresh": [
     {
       "type": 0,
       "value": "Ricarica"
-    }
-  ],
-  "label.regenerate": [
-    {
-      "type": 0,
-      "value": "Regenerate"
-    }
-  ],
-  "label.regions": [
-    {
-      "type": 0,
-      "value": "Regions"
-    }
-  ],
-  "label.remove": [
-    {
-      "type": 0,
-      "value": "Remove"
     }
   ],
   "label.required": [
@@ -493,34 +307,10 @@
       "value": "Resetta le statistiche"
     }
   ],
-  "label.role": [
-    {
-      "type": 0,
-      "value": "Role"
-    }
-  ],
   "label.save": [
     {
       "type": 0,
       "value": "Salva"
-    }
-  ],
-  "label.screens": [
-    {
-      "type": 0,
-      "value": "Screens"
-    }
-  ],
-  "label.select-website": [
-    {
-      "type": 0,
-      "value": "Select website"
-    }
-  ],
-  "label.sessions": [
-    {
-      "type": 0,
-      "value": "Sessions"
     }
   ],
   "label.settings": [
@@ -539,48 +329,6 @@
     {
       "type": 0,
       "value": "Singolo giorno"
-    }
-  ],
-  "label.tablet": [
-    {
-      "type": 0,
-      "value": "Tablet"
-    }
-  ],
-  "label.team": [
-    {
-      "type": 0,
-      "value": "Team"
-    }
-  ],
-  "label.team-guest": [
-    {
-      "type": 0,
-      "value": "Team guest"
-    }
-  ],
-  "label.team-id": [
-    {
-      "type": 0,
-      "value": "Team ID"
-    }
-  ],
-  "label.team-member": [
-    {
-      "type": 0,
-      "value": "Team member"
-    }
-  ],
-  "label.team-owner": [
-    {
-      "type": 0,
-      "value": "Team owner"
-    }
-  ],
-  "label.teams": [
-    {
-      "type": 0,
-      "value": "Teams"
     }
   ],
   "label.theme": [
@@ -613,22 +361,10 @@
       "value": "Fuso orario"
     }
   ],
-  "label.title": [
-    {
-      "type": 0,
-      "value": "Title"
-    }
-  ],
   "label.today": [
     {
       "type": 0,
       "value": "Oggi"
-    }
-  ],
-  "label.toggle-charts": [
-    {
-      "type": 0,
-      "value": "Apri/Chiudi i grafici"
     }
   ],
   "label.tracking-code": [
@@ -637,22 +373,10 @@
       "value": "Codice di tracking"
     }
   ],
-  "label.unique-visitors": [
-    {
-      "type": 0,
-      "value": "Visitatori unici"
-    }
-  ],
   "label.unknown": [
     {
       "type": 0,
       "value": "Sconosciuto"
-    }
-  ],
-  "label.user": [
-    {
-      "type": 0,
-      "value": "User"
     }
   ],
   "label.username": [
@@ -661,40 +385,10 @@
       "value": "Nome utente"
     }
   ],
-  "label.users": [
-    {
-      "type": 0,
-      "value": "Users"
-    }
-  ],
-  "label.view": [
-    {
-      "type": 0,
-      "value": "View"
-    }
-  ],
   "label.view-details": [
     {
       "type": 0,
       "value": "Vedi dettagli"
-    }
-  ],
-  "label.views": [
-    {
-      "type": 0,
-      "value": "Visualizzazioni"
-    }
-  ],
-  "label.visitors": [
-    {
-      "type": 0,
-      "value": "Visitatori"
-    }
-  ],
-  "label.website-id": [
-    {
-      "type": 0,
-      "value": "Website ID"
     }
   ],
   "label.websites": [
@@ -761,20 +455,6 @@
       "value": "?"
     }
   ],
-  "message.confirm-leave": [
-    {
-      "type": 0,
-      "value": "Are you sure you want to leave "
-    },
-    {
-      "type": 1,
-      "value": "target"
-    },
-    {
-      "type": 0,
-      "value": "?"
-    }
-  ],
   "message.confirm-reset": [
     {
       "type": 0,
@@ -789,36 +469,40 @@
       "value": "?"
     }
   ],
-  "message.delete-website": [
+  "message.copied": [
     {
       "type": 0,
-      "value": "Elimina sito"
+      "value": "Copiato!"
     }
   ],
-  "message.delete-website-warning": [
+  "message.delete-warning": [
     {
       "type": 0,
       "value": "Saranno eliminati anche tutti i dati associati."
     }
   ],
-  "message.error": [
+  "message.edit-dashboard": [
+    {
+      "type": 0,
+      "value": "Edit dashboard"
+    }
+  ],
+  "message.failure": [
     {
       "type": 0,
       "value": "Si è verificato un errore."
     }
   ],
-  "message.event-log": [
-    {
-      "type": 1,
-      "value": "event"
-    },
+  "message.get-share-url": [
     {
       "type": 0,
-      "value": " on "
-    },
+      "value": "Ottieni l'URL di condivisione"
+    }
+  ],
+  "message.get-tracking-code": [
     {
-      "type": 1,
-      "value": "url"
+      "type": 0,
+      "value": "Ottieni il codice di tracking"
     }
   ],
   "message.go-to-settings": [
@@ -833,113 +517,7 @@
       "value": "Username o password non corretti."
     }
   ],
-  "message.invalid-domain": [
-    {
-      "type": 0,
-      "value": "Dominio non valido"
-    }
-  ],
-  "message.min-password-length": [
-    {
-      "type": 0,
-      "value": "Minimum length of "
-    },
-    {
-      "type": 1,
-      "value": "n"
-    },
-    {
-      "type": 0,
-      "value": " characters"
-    }
-  ],
-  "message.no-data-available": [
-    {
-      "type": 0,
-      "value": "Nessun dato disponibile."
-    }
-  ],
-  "message.no-match-password": [
-    {
-      "type": 0,
-      "value": "Le password non corrispondono"
-    }
-  ],
-  "message.no-teams": [
-    {
-      "type": 0,
-      "value": "You have not created any teams."
-    }
-  ],
-  "message.no-users": [
-    {
-      "type": 0,
-      "value": "There are no users."
-    }
-  ],
-  "message.page-not-found": [
-    {
-      "type": 0,
-      "value": "Pagina non trovata"
-    }
-  ],
-  "message.reset-website": [
-    {
-      "type": 0,
-      "value": "Resetta le statistiche"
-    }
-  ],
-  "message.reset-website-warning": [
-    {
-      "type": 0,
-      "value": "Tutte le statistiche verranno cancellate per questo sito, ma il tuo codice di tracciamento rimarrà invariato."
-    }
-  ],
-  "message.saved": [
-    {
-      "type": 0,
-      "value": "Salvato!"
-    }
-  ],
-  "message.share-url": [
-    {
-      "type": 0,
-      "value": "Questo è l'URL di condivisione per "
-    },
-    {
-      "type": 1,
-      "value": "target"
-    },
-    {
-      "type": 0,
-      "value": "."
-    }
-  ],
-  "message.team-already-member": [
-    {
-      "type": 0,
-      "value": "You are already a member of the team."
-    }
-  ],
-  "message.team-not-found": [
-    {
-      "type": 0,
-      "value": "Team not found."
-    }
-  ],
-  "message.tracking-code": [
-    {
-      "type": 0,
-      "value": "Codice di tracking"
-    }
-  ],
-  "message.user-deleted": [
-    {
-      "type": 0,
-      "value": "User deleted."
-    }
-  ],
-  "message.visitor-log": [
+  "message.log.visitor": [
     {
       "type": 0,
       "value": "Utenti da "
@@ -973,22 +551,266 @@
       "value": "device"
     }
   ],
-  "messages.no-team-websites": [
+  "message.new-version-available": [
     {
       "type": 0,
-      "value": "This team does not have any websites."
+      "value": "Una nuova versione "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    },
+    {
+      "type": 0,
+      "value": " di umami è disponibile!"
     }
   ],
-  "messages.no-websites-configured": [
+  "message.no-data-available": [
+    {
+      "type": 0,
+      "value": "Nessun dato disponibile."
+    }
+  ],
+  "message.no-websites-configured": [
     {
       "type": 0,
       "value": "Non hai ancora configurato alcun sito."
     }
   ],
-  "messages.team-websites-info": [
+  "message.page-not-found": [
     {
       "type": 0,
-      "value": "Websites can be viewed by anyone on the team."
+      "value": "Pagina non trovata"
+    }
+  ],
+  "message.powered-by": [
+    {
+      "type": 0,
+      "value": "Powered by "
+    },
+    {
+      "type": 1,
+      "value": "name"
+    }
+  ],
+  "message.reset-warning": [
+    {
+      "type": 0,
+      "value": "Tutte le statistiche verranno cancellate per questo sito, ma il tuo codice di tracciamento rimarrà invariato."
+    }
+  ],
+  "message.save-success": [
+    {
+      "type": 0,
+      "value": "Salvato!"
+    }
+  ],
+  "message.share-url": [
+    {
+      "type": 0,
+      "value": "Questo è l'URL di condivisione per "
+    },
+    {
+      "type": 1,
+      "value": "target"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
+  "message.toggle-charts": [
+    {
+      "type": 0,
+      "value": "Apri/Chiudi i grafici"
+    }
+  ],
+  "message.track-stats": [
+    {
+      "type": 0,
+      "value": "Per tracciare le statistiche di "
+    },
+    {
+      "type": 1,
+      "value": "target"
+    },
+    {
+      "type": 0,
+      "value": ", inserisci questo codice nella sezione "
+    },
+    {
+      "type": 1,
+      "value": "head"
+    },
+    {
+      "type": 0,
+      "value": " del tuo sito web."
+    }
+  ],
+  "message.type-delete": [
+    {
+      "type": 0,
+      "value": "Digita "
+    },
+    {
+      "type": 1,
+      "value": "delete"
+    },
+    {
+      "type": 0,
+      "value": " nel box qui sotto per confermare."
+    }
+  ],
+  "message.type-reset": [
+    {
+      "type": 0,
+      "value": "Digita "
+    },
+    {
+      "type": 1,
+      "value": "reset"
+    },
+    {
+      "type": 0,
+      "value": " nel box qui sotto per confermare."
+    }
+  ],
+  "metrics.actions": [
+    {
+      "type": 0,
+      "value": "Azioni"
+    }
+  ],
+  "metrics.average-visit-time": [
+    {
+      "type": 0,
+      "value": "Tempo medio di visita"
+    }
+  ],
+  "metrics.bounce-rate": [
+    {
+      "type": 0,
+      "value": "Frequenza di rimbalzo"
+    }
+  ],
+  "metrics.browsers": [
+    {
+      "type": 0,
+      "value": "Browser"
+    }
+  ],
+  "metrics.countries": [
+    {
+      "type": 0,
+      "value": "Nazioni"
+    }
+  ],
+  "metrics.device.desktop": [
+    {
+      "type": 0,
+      "value": "Desktop"
+    }
+  ],
+  "metrics.device.laptop": [
+    {
+      "type": 0,
+      "value": "Portatile"
+    }
+  ],
+  "metrics.device.mobile": [
+    {
+      "type": 0,
+      "value": "Cellulare"
+    }
+  ],
+  "metrics.device.tablet": [
+    {
+      "type": 0,
+      "value": "Tablet"
+    }
+  ],
+  "metrics.devices": [
+    {
+      "type": 0,
+      "value": "Dispositivi"
+    }
+  ],
+  "metrics.events": [
+    {
+      "type": 0,
+      "value": "Eventi"
+    }
+  ],
+  "metrics.filter.combined": [
+    {
+      "type": 0,
+      "value": "Aggregati"
+    }
+  ],
+  "metrics.filter.raw": [
+    {
+      "type": 0,
+      "value": "Raw"
+    }
+  ],
+  "metrics.languages": [
+    {
+      "type": 0,
+      "value": "Lingue"
+    }
+  ],
+  "metrics.operating-systems": [
+    {
+      "type": 0,
+      "value": "Sistemi operativi"
+    }
+  ],
+  "metrics.page-views": [
+    {
+      "type": 0,
+      "value": "Visualizzazioni di pagina"
+    }
+  ],
+  "metrics.pages": [
+    {
+      "type": 0,
+      "value": "Pagine"
+    }
+  ],
+  "metrics.query-parameters": [
+    {
+      "type": 0,
+      "value": "Query parameters"
+    }
+  ],
+  "metrics.referrers": [
+    {
+      "type": 0,
+      "value": "Referrers"
+    }
+  ],
+  "metrics.screens": [
+    {
+      "type": 0,
+      "value": "Screens"
+    }
+  ],
+  "metrics.unique-visitors": [
+    {
+      "type": 0,
+      "value": "Visitatori unici"
+    }
+  ],
+  "metrics.views": [
+    {
+      "type": 0,
+      "value": "Visualizzazioni"
+    }
+  ],
+  "metrics.visitors": [
+    {
+      "type": 0,
+      "value": "Visitatori"
     }
   ]
 }

@@ -1,18 +1,15 @@
+import React from 'react';
 import MetricsTable from './MetricsTable';
-import useMessages from 'hooks/useMessages';
+import { FormattedMessage } from 'react-intl';
 
-export function ScreenTable({ websiteId, ...props }) {
-  const { formatMessage, labels } = useMessages();
-
+export default function ScreenTable({ websiteId, ...props }) {
   return (
     <MetricsTable
       {...props}
-      title={formatMessage(labels.screens)}
+      title={<FormattedMessage id="metrics.screens" defaultMessage="Screens" />}
       type="screen"
-      metric={formatMessage(labels.visitors)}
+      metric={<FormattedMessage id="metrics.visitors" defaultMessage="Visitors" />}
       websiteId={websiteId}
     />
   );
 }
-
-export default ScreenTable;

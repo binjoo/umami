@@ -1,21 +1,24 @@
-import { useMemo } from 'react';
-import { Loading, Icon, Text, Button } from 'react-basics';
-import Link from 'next/link';
+import React, { useMemo } from 'react';
+import { defineMessages, useIntl } from 'react-intl';
 import firstBy from 'thenby';
 import classNames from 'classnames';
-import useApi from 'hooks/useApi';
+import Link from 'components/common/Link';
+import Loading from 'components/common/Loading';
+import useFetch from 'hooks/useFetch';
+import Arrow from 'assets/arrow-right.svg';
 import { percentFilter } from 'lib/filters';
 import useDateRange from 'hooks/useDateRange';
 import usePageQuery from 'hooks/usePageQuery';
 import ErrorMessage from 'components/common/ErrorMessage';
 import DataTable from './DataTable';
 import { DEFAULT_ANIMATION_DURATION } from 'lib/constants';
-import Icons from 'components/icons';
-import useMessages from 'hooks/useMessages';
 import styles from './MetricsTable.module.css';
-import useLocale from 'hooks/useLocale';
 
-export function MetricsTable({
+const messages = defineMessages({
+  more: { id: 'label.more', defaultMessage: 'More' },
+});
+
+export default function MetricsTable({
   websiteId,
   type,
   className,
@@ -28,33 +31,30 @@ export function MetricsTable({
 }) {
   const [{ startDate, endDate, modified }] = useDateRange(websiteId);
   const {
-    resolveUrl,
+    resolve,
     router,
-    query: { url, referrer, os, browser, device, country, region, city },
+    query: { url, referrer, os, browser, device, country },
   } = usePageQuery();
-  const { formatMessage, labels } = useMessages();
-  const { get, useQuery } = useApi();
+  const { formatMessage } = useIntl();
 
-  const { data, isLoading, isFetched, error } = useQuery(
-    [
-      'websites:metrics',
-      { websiteId, type, modified, url, referrer, os, browser, device, country, region, city },
-    ],
-    () =>
-      get(`/websites/${websiteId}/metrics`, {
+  const { data, loading, error } = useFetch(
+    `/websites/${websiteId}/metrics`,
+    {
+      params: {
         type,
-        startAt: +startDate,
-        endAt: +endDate,
+        start_at: +startDate,
+        end_at: +endDate,
         url,
         referrer,
         os,
         browser,
         device,
         country,
-        region,
-        city,
-      }),
-    { onSuccess: onDataLoad, retryDelay: delay || DEFAULT_ANIMATION_DURATION },
+      },
+      onDataLoad,
+      delay: delay || DEFAULT_ANIMATION_DURATION,
+    },
+    [type, modified, url, referrer, os, browser, device, country],
   );
 
   const filteredData = useMemo(() => {
@@ -70,27 +70,25 @@ export function MetricsTable({
     }
     return [];
   }, [data, error, dataFilter, filterOptions]);
-  const { dir } = useLocale();
 
   return (
     <div className={classNames(styles.container, className)}>
-      {!data && isLoading && !isFetched && <Loading icon="dots" />}
+      {!data && loading && <Loading />}
       {error && <ErrorMessage />}
       {data && !error && <DataTable {...props} data={filteredData} className={className} />}
       <div className={styles.footer}>
         {data && !error && limit && (
-          <Link href={router.pathname} as={resolveUrl({ view: type })}>
-            <Button variant="quiet">
-              <Text>{formatMessage(labels.more)}</Text>
-              <Icon size="sm" rotate={dir === 'rtl' ? 180 : 0}>
-                <Icons.ArrowRight />
-              </Icon>
-            </Button>
+          <Link
+            icon={<Arrow />}
+            href={router.pathname}
+            as={resolve({ view: type })}
+            size="small"
+            iconRight
+          >
+            {formatMessage(messages.more)}
           </Link>
         )}
       </div>
     </div>
   );
 }
-
-export default MetricsTable;

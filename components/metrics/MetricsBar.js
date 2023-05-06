@@ -1,42 +1,38 @@
-import { useState } from 'react';
-import { Loading } from 'react-basics';
+import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import classNames from 'classnames';
+import Loading from 'components/common/Loading';
 import ErrorMessage from 'components/common/ErrorMessage';
-import useApi from 'hooks/useApi';
+import useFetch from 'hooks/useFetch';
 import useDateRange from 'hooks/useDateRange';
 import usePageQuery from 'hooks/usePageQuery';
 import { formatShortTime, formatNumber, formatLongNumber } from 'lib/format';
 import MetricCard from './MetricCard';
-import useMessages from 'hooks/useMessages';
 import styles from './MetricsBar.module.css';
 
-export function MetricsBar({ websiteId }) {
-  const { formatMessage, labels } = useMessages();
-  const { get, useQuery } = useApi();
+export default function MetricsBar({ websiteId, className }) {
   const [dateRange] = useDateRange(websiteId);
   const { startDate, endDate, modified } = dateRange;
   const [format, setFormat] = useState(true);
   const {
-    query: { url, referrer, os, browser, device, country, region, city },
+    query: { url, referrer, os, browser, device, country },
   } = usePageQuery();
 
-  const { data, error, isLoading, isFetched } = useQuery(
-    [
-      'websites:stats',
-      { websiteId, modified, url, referrer, os, browser, device, country, region, city },
-    ],
-    () =>
-      get(`/websites/${websiteId}/stats`, {
-        startAt: +startDate,
-        endAt: +endDate,
+  const { data, error, loading } = useFetch(
+    `/websites/${websiteId}/stats`,
+    {
+      params: {
+        start_at: +startDate,
+        end_at: +endDate,
         url,
         referrer,
         os,
         browser,
         device,
         country,
-        region,
-        city,
-      }),
+      },
+    },
+    [modified, url, referrer, os, browser, device, country],
   );
 
   const formatFunc = format
@@ -57,28 +53,25 @@ export function MetricsBar({ websiteId }) {
   };
 
   return (
-    <div className={styles.bar} onClick={handleSetFormat}>
-      {isLoading && !isFetched && <Loading icon="dots" />}
+    <div className={classNames(styles.bar, className)} onClick={handleSetFormat}>
+      {!data && loading && <Loading />}
       {error && <ErrorMessage />}
-      {data && !error && isFetched && (
+      {data && !error && (
         <>
           <MetricCard
-            className={styles.card}
-            label={formatMessage(labels.views)}
+            label={<FormattedMessage id="metrics.views" defaultMessage="Views" />}
             value={pageviews.value}
             change={pageviews.change}
             format={formatFunc}
           />
           <MetricCard
-            className={styles.card}
-            label={formatMessage(labels.visitors)}
+            label={<FormattedMessage id="metrics.visitors" defaultMessage="Visitors" />}
             value={uniques.value}
             change={uniques.change}
             format={formatFunc}
           />
           <MetricCard
-            className={styles.card}
-            label={formatMessage(labels.bounceRate)}
+            label={<FormattedMessage id="metrics.bounce-rate" defaultMessage="Bounce rate" />}
             value={uniques.value ? (num / uniques.value) * 100 : 0}
             change={
               uniques.value && uniques.change
@@ -90,8 +83,12 @@ export function MetricsBar({ websiteId }) {
             reverseColors
           />
           <MetricCard
-            className={styles.card}
-            label={formatMessage(labels.averageVisitTime)}
+            label={
+              <FormattedMessage
+                id="metrics.average-visit-time"
+                defaultMessage="Average visit time"
+              />
+            }
             value={
               totaltime.value && pageviews.value
                 ? totaltime.value / (pageviews.value - bounces.value)
@@ -111,5 +108,3 @@ export function MetricsBar({ websiteId }) {
     </div>
   );
 }
-
-export default MetricsBar;

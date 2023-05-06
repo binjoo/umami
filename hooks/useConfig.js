@@ -2,21 +2,20 @@ import { useEffect } from 'react';
 import useStore, { setConfig } from 'store/app';
 import useApi from 'hooks/useApi';
 
-let loading = false;
+let fetched = false;
 
 export default function useConfig() {
   const { config } = useStore();
   const { get } = useApi();
 
   async function loadConfig() {
-    const data = await get('/config');
-    loading = false;
+    const { data } = await get('/config');
     setConfig(data);
   }
 
   useEffect(() => {
-    if (!config && !loading) {
-      loading = true;
+    if (!config && !fetched) {
+      fetched = true;
       loadConfig();
     }
   }, []);

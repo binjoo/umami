@@ -1,18 +1,14 @@
-import { Icon, Icons, Text } from 'react-basics';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import Icon from './Icon';
+import Exclamation from 'assets/exclamation-triangle.svg';
 import styles from './ErrorMessage.module.css';
-import useMessages from 'hooks/useMessages';
 
-export function ErrorMessage() {
-  const { formatMessage, messages } = useMessages();
-
+export default function ErrorMessage() {
   return (
     <div className={styles.error}>
-      <Icon className={styles.icon} size="large">
-        <Icons.Alert />
-      </Icon>
-      <Text>{formatMessage(messages.error)}</Text>
+      <Icon icon={<Exclamation />} className={styles.icon} size="large" />
+      <FormattedMessage id="message.failure" defaultMessage="Something went wrong." />
     </div>
   );
 }
-
-export default ErrorMessage;

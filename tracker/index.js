@@ -12,25 +12,12 @@
 
   if (!currentScript) return;
 
-  const _data = 'data-';
-  const _false = 'false';
-  const attr = currentScript.getAttribute.bind(currentScript);
-  const website = attr(_data + 'website-id');
-  const hostUrl = attr(_data + 'host-url');
-  const autoTrack = attr(_data + 'auto-track') !== _false;
-  const dnt = attr(_data + 'do-not-track');
-  const domain = attr(_data + 'domains') || '';
-  const domains = domain.split(',').map(n => n.trim());
-  const root = hostUrl
-    ? hostUrl.replace(/\/$/, '')
-    : currentScript.src.split('/').slice(0, -1).join('/');
-  const endpoint = `${root}/api/send`;
-  const screen = `${width}x${height}`;
-  const eventRegex = /data-umami-event-([\w-_]+)/;
-  const eventNameAttribute = _data + 'umami-event';
-  const delayDuration = 300;
-
-  /* Helper functions */
+  const assign = (a, b) => {
+    Object.keys(b).forEach(key => {
+      if (b[key] !== undefined) a[key] = b[key];
+    });
+    return a;
+  };
 
   const hook = (_this, method, callback) => {
     const orig = _this[method];
@@ -41,25 +28,6 @@
       return orig.apply(_this, args);
     };
   };
-
-  const getPath = url => {
-    if (url.substring(0, 4) === 'http') {
-      return '/' + url.split('/').splice(3).join('/');
-    }
-    return url;
-  };
-
-  const getPayload = () => ({
-    website,
-    hostname,
-    screen,
-    language,
-    title,
-    url: currentUrl,
-    referrer: currentRef,
-  });
-
-  /* Tracking functions */
 
   const doNotTrack = () => {
     const { doNotTrack, navigator, external } = window;
@@ -79,161 +47,177 @@
     (dnt && doNotTrack()) ||
     (domain && !domains.includes(hostname));
 
-  const handlePush = (state, title, url) => {
-    if (!url) return;
+  const _data = 'data-';
+  const _false = 'false';
+  const attr = currentScript.getAttribute.bind(currentScript);
+  const website = attr(_data + 'website-id');
+  const hostUrl = attr(_data + 'host-url');
+  const autoTrack = attr(_data + 'auto-track') !== _false;
+  const dnt = attr(_data + 'do-not-track');
+  const cssEvents = attr(_data + 'css-events') !== _false;
+  const domain = attr(_data + 'domains') || '';
+  const domains = domain.split(',').map(n => n.trim());
+  const root = hostUrl
+    ? hostUrl.replace(/\/$/, '')
+    : currentScript.src.split('/').slice(0, -1).join('/');
+  const endpoint = `${root}/api/collect`;
+  const screen = `${width}x${height}`;
+  const eventClass = /^umami--([a-z]+)--([\w]+[\w-]*)$/;
+  const eventSelect = "[class*='umami--']";
 
-    currentRef = currentUrl;
-    currentUrl = getPath(url.toString());
+  let listeners = {};
+  let currentUrl = `${pathname}${search}`;
+  let currentRef = document.referrer;
+  let cache;
 
-    if (currentUrl !== currentRef) {
-      setTimeout(track, delayDuration);
-    }
-  };
+  /* Collect metrics */
 
-  const handleClick = () => {
-    const trackElement = el => {
-      const attr = el.getAttribute.bind(el);
-      const eventName = attr(eventNameAttribute);
+  const getPayload = () => ({
+    website,
+    hostname,
+    screen,
+    language,
+    url: currentUrl,
+  });
 
-      if (eventName) {
-        const eventData = {};
-
-        el.getAttributeNames().forEach(name => {
-          const match = name.match(eventRegex);
-
-          if (match) {
-            eventData[match[1]] = attr(name);
-          }
-        });
-
-        return track(eventName, { data: eventData });
-      }
-      return Promise.resolve();
-    };
-
-    const callback = e => {
-      const findATagParent = (rootElem, maxSearchDepth) => {
-        let currentElement = rootElem;
-        for (let i = 0; i < maxSearchDepth; i++) {
-          if (currentElement.tagName === 'A') {
-            return currentElement;
-          }
-          currentElement = currentElement.parentElement;
-          if (!currentElement) {
-            return null;
-          }
-        }
-        return null;
-      };
-
-      const el = e.target;
-      const anchor = el.tagName === 'A' ? el : findATagParent(el, 10);
-
-      if (anchor) {
-        const { href, target } = anchor;
-        const external =
-          target === '_blank' ||
-          e.ctrlKey ||
-          e.shiftKey ||
-          e.metaKey ||
-          (e.button && e.button === 1);
-        const eventName = anchor.getAttribute(eventNameAttribute);
-
-        if (eventName && href) {
-          if (!external) {
-            e.preventDefault();
-          }
-          return trackElement(anchor).then(() => {
-            if (!external) location.href = href;
-          });
-        }
-      } else {
-        trackElement(el);
-      }
-    };
-
-    document.addEventListener('click', callback, true);
-  };
-
-  const observeTitle = () => {
-    const callback = ([entry]) => {
-      title = entry && entry.target ? entry.target.text : undefined;
-    };
-
-    const observer = new MutationObserver(callback);
-
-    const node = document.querySelector('head > title');
-
-    if (node) {
-      observer.observe(node, {
-        subtree: true,
-        characterData: true,
-        childList: true,
-      });
-    }
-  };
-
-  const send = payload => {
+  const collect = (type, payload) => {
     if (trackingDisabled()) return;
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-    if (typeof cache !== 'undefined') {
-      headers['x-umami-cache'] = cache;
-    }
+
     return fetch(endpoint, {
       method: 'POST',
-      body: JSON.stringify({ type: 'event', payload }),
-      headers,
+      body: JSON.stringify({ type, payload }),
+      headers: assign({ 'Content-Type': 'application/json' }, { ['x-umami-cache']: cache }),
     })
       .then(res => res.text())
       .then(text => (cache = text));
   };
 
-  const track = (obj, data) => {
-    if (typeof obj === 'string') {
-      return send({
-        ...getPayload(),
-        name: obj,
-        data: typeof data === 'object' ? data : undefined,
-      });
-    } else if (typeof obj === 'object') {
-      return send(obj);
-    } else if (typeof obj === 'function') {
-      return send(obj(getPayload()));
-    }
-    return send(getPayload());
+  const trackView = (url = currentUrl, referrer = currentRef, websiteUuid = website) =>
+    collect(
+      'pageview',
+      assign(getPayload(), {
+        website: websiteUuid,
+        url,
+        referrer,
+      }),
+    );
+
+  const trackEvent = (eventName, eventData, url = currentUrl, websiteUuid = website) =>
+    collect(
+      'event',
+      assign(getPayload(), {
+        website: websiteUuid,
+        url,
+        event_name: eventName,
+        event_data: eventData,
+      }),
+    );
+
+  /* Handle events */
+
+  const addEvents = node => {
+    const elements = node.querySelectorAll(eventSelect);
+    Array.prototype.forEach.call(elements, addEvent);
   };
 
-  /* Start */
+  const addEvent = element => {
+    const get = element.getAttribute.bind(element);
+    (get('class') || '').split(' ').forEach(className => {
+      if (!eventClass.test(className)) return;
+
+      const [, event, name] = className.split('--');
+
+      const listener = listeners[className]
+        ? listeners[className]
+        : (listeners[className] = e => {
+            if (
+              event === 'click' &&
+              element.tagName === 'A' &&
+              !(
+                e.ctrlKey ||
+                e.shiftKey ||
+                e.metaKey ||
+                (e.button && e.button === 1) ||
+                get('target')
+              )
+            ) {
+              e.preventDefault();
+              trackEvent(name).then(() => {
+                const href = get('href');
+                if (href) {
+                  location.href = href;
+                }
+              });
+            } else {
+              trackEvent(name);
+            }
+          });
+
+      element.addEventListener(event, listener, true);
+    });
+  };
+
+  /* Handle history changes */
+
+  const handlePush = (state, title, url) => {
+    if (!url) return;
+
+    currentRef = currentUrl;
+    const newUrl = url.toString();
+
+    if (newUrl.substring(0, 4) === 'http') {
+      currentUrl = '/' + newUrl.split('/').splice(3).join('/');
+    } else {
+      currentUrl = newUrl;
+    }
+
+    if (currentUrl !== currentRef) {
+      trackView();
+    }
+  };
+
+  const observeDocument = () => {
+    const monitorMutate = mutations => {
+      mutations.forEach(mutation => {
+        const element = mutation.target;
+        addEvent(element);
+        addEvents(element);
+      });
+    };
+
+    const observer = new MutationObserver(monitorMutate);
+    observer.observe(document, { childList: true, subtree: true });
+  };
+
+  /* Global */
 
   if (!window.umami) {
-    window.umami = {
-      track,
-    };
+    const umami = eventValue => trackEvent(eventValue);
+    umami.trackView = trackView;
+    umami.trackEvent = trackEvent;
+
+    window.umami = umami;
   }
 
-  let currentUrl = `${pathname}${search}`;
-  let currentRef = document.referrer;
-  let title = document.title;
-  let cache;
-  let initialized;
+  /* Start */
 
   if (autoTrack && !trackingDisabled()) {
     history.pushState = hook(history, 'pushState', handlePush);
     history.replaceState = hook(history, 'replaceState', handlePush);
-    handleClick();
-    observeTitle();
 
-    const init = () => {
-      if (document.readyState === 'complete' && !initialized) {
-        track();
-        initialized = true;
+    const update = () => {
+      if (document.readyState === 'complete') {
+        trackView();
+
+        if (cssEvents) {
+          addEvents(document);
+          observeDocument();
+        }
       }
     };
 
-    document.addEventListener('readystatechange', init, true);
+    document.addEventListener('readystatechange', update, true);
 
-    init();
+    update();
   }
 })(window);

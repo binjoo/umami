@@ -1,54 +1,28 @@
+import React from 'react';
+import classNames from 'classnames';
 import { safeDecodeURI } from 'next-basics';
-import { Button, Icon, Icons, Text } from 'react-basics';
-import usePageQuery from 'hooks/usePageQuery';
+import Button from 'components/common/Button';
+import Times from 'assets/times.svg';
 import styles from './FilterTags.module.css';
-import useMessages from 'hooks/useMessages';
 
-export function FilterTags({ params }) {
-  const { formatMessage, labels } = useMessages();
-  const {
-    router,
-    resolveUrl,
-    query: { view },
-  } = usePageQuery();
-
+export default function FilterTags({ className, params, onClick }) {
   if (Object.keys(params).filter(key => params[key]).length === 0) {
     return null;
   }
-
-  function handleCloseFilter(param) {
-    if (!param) {
-      router.push(resolveUrl({ view }, true));
-    } else {
-      router.push(resolveUrl({ [param]: undefined }));
-    }
-  }
-
   return (
-    <div className={styles.filters}>
+    <div className={classNames(styles.filters, 'col-12', className)}>
       {Object.keys(params).map(key => {
         if (!params[key]) {
           return null;
         }
         return (
-          <div key={key} className={styles.tag} onClick={() => handleCloseFilter(key)}>
-            <Text>
-              <b>{`${key}`}</b> = {`${safeDecodeURI(params[key])}`}
-            </Text>
-            <Icon>
-              <Icons.Close />
-            </Icon>
+          <div key={key} className={styles.tag}>
+            <Button icon={<Times />} onClick={() => onClick(key)} variant="action" iconRight>
+              {`${key}: ${safeDecodeURI(params[key])}`}
+            </Button>
           </div>
         );
       })}
-      <Button size="sm" variant="quiet" onClick={() => handleCloseFilter()}>
-        <Icon>
-          <Icons.Close />
-        </Icon>
-        <Text>{formatMessage(labels.clearAll)}</Text>
-      </Button>
     </div>
   );
 }
-
-export default FilterTags;

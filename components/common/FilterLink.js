@@ -1,40 +1,34 @@
-import { Icon, Icons } from 'react-basics';
+import React from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { safeDecodeURI } from 'next-basics';
 import usePageQuery from 'hooks/usePageQuery';
-import useMessages from 'hooks/useMessages';
+import External from 'assets/arrow-up-right-from-square.svg';
+import Icon from './Icon';
 import styles from './FilterLink.module.css';
 
-export function FilterLink({ id, value, label, externalUrl, children, className }) {
-  const { formatMessage, labels } = useMessages();
-  const { resolveUrl, query } = usePageQuery();
+export default function FilterLink({ id, value, label, externalUrl }) {
+  const { resolve, query } = usePageQuery();
   const active = query[id] !== undefined;
   const selected = query[id] === value;
 
   return (
-    <div
-      className={classNames(styles.row, className, {
-        [styles.inactive]: active && !selected,
-        [styles.active]: active && selected,
-      })}
-    >
-      {children}
-      {!value && `(${label || formatMessage(labels.unknown)})`}
-      {value && (
-        <Link href={resolveUrl({ [id]: value })} className={styles.label} replace>
+    <div className={styles.row}>
+      <Link href={resolve({ [id]: value })} replace>
+        <a
+          className={classNames(styles.label, {
+            [styles.inactive]: active && !selected,
+            [styles.active]: active && selected,
+          })}
+        >
           {safeDecodeURI(label || value)}
-        </Link>
-      )}
+        </a>
+      </Link>
       {externalUrl && (
         <a className={styles.link} href={externalUrl} target="_blank" rel="noreferrer noopener">
-          <Icon className={styles.icon}>
-            <Icons.External />
-          </Icon>
+          <Icon icon={<External />} className={styles.icon} />
         </a>
       )}
     </div>
   );
 }
-
-export default FilterLink;

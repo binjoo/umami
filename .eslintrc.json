@@ -4,7 +4,12 @@
     "es2020": true,
     "node": true
   },
-  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "next"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -12,15 +17,6 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-    "plugin:import/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "next"
-  ],
-
-  "plugins": ["@typescript-eslint", "prettier"],
   "settings": {
     "import/resolver": {
       "alias": {
@@ -36,7 +32,7 @@
           ["store", "./store"],
           ["styles", "./styles"]
         ],
-        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
+        "extensions": [".ts", ".js", ".jsx", ".json"]
       }
     }
   },
@@ -46,11 +42,7 @@
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "import/no-anonymous-default-export": "off",
-    "import/no-named-as-default": "off",
-    "@next/next/no-img-element": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off"
+    "@next/next/no-img-element": "off"
   },
   "globals": {
     "React": "writable"

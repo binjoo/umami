@@ -2,20 +2,20 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 20px 0;
+  margin-top: 10px;
 }
 
 .label {
   display: flex;
   align-items: center;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xsmall);
   cursor: pointer;
 }
 
 .label + .label {
-  margin-inline-start: 20px;
+  margin-left: 20px;
 }
 
 .hidden {
-  color: var(--base400);
+  color: var(--gray400);
 }
