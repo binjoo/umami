@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export function useDocumentClick(handler) {
+export default function useDocumentClick(handler) {
   useEffect(() => {
     document.addEventListener('click', handler);
 
@@ -11,5 +11,3 @@ export function useDocumentClick(handler) {
 
   return null;
 }
-
-export default useDocumentClick;

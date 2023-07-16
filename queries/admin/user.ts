@@ -1,9 +1,8 @@
 import { Prisma, Team, TeamUser } from '@prisma/client';
-import { getRandomChars } from 'next-basics';
 import cache from 'lib/cache';
 import { ROLES } from 'lib/constants';
 import prisma from 'lib/prisma';
-import { Website, User, Role } from 'lib/types';
+import { Website, User, Roles } from 'lib/types';
 
 export async function getUser(
   where: Prisma.UserWhereInput | Prisma.UserWhereUniqueInput,
@@ -91,7 +90,7 @@ export async function createUser(data: {
   id: string;
   username: string;
   password: string;
-  role: Role;
+  role: Roles;
 }): Promise<{
   id: string;
   username: string;
@@ -198,16 +197,9 @@ export async function deleteUser(
       }),
       client.teamUser.deleteMany({
         where: {
-          OR: [
-            {
-              teamId: {
-                in: teamIds,
-              },
-            },
-            {
-              userId,
-            },
-          ],
+          teamId: {
+            in: teamIds,
+          },
         },
       }),
       client.team.deleteMany({
@@ -215,20 +207,6 @@ export async function deleteUser(
           id: {
             in: teamIds,
           },
-        },
-      }),
-      client.report.deleteMany({
-        where: {
-          OR: [
-            {
-              websiteId: {
-                in: websiteIds,
-              },
-            },
-            {
-              userId,
-            },
-          ],
         },
       }),
       cloudMode
@@ -244,7 +222,6 @@ export async function deleteUser(
       cloudMode
         ? client.user.update({
             data: {
-              username: getRandomChars(32),
               deletedAt: new Date(),
             },
             where: {

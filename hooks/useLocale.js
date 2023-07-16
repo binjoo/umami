@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { httpGet, setItem } from 'next-basics';
+import { get, setItem } from 'next-basics';
 import { LOCALE_CONFIG } from 'lib/constants';
 import { getDateLocale, getTextDirection } from 'lib/lang';
 import useStore, { setLocale } from 'store/app';
@@ -13,7 +13,7 @@ const messages = {
 
 const selector = state => state.locale;
 
-export function useLocale() {
+export default function useLocale() {
   const locale = useStore(selector);
   const { basePath } = useRouter();
   const forceUpdate = useForceUpdate();
@@ -21,7 +21,7 @@ export function useLocale() {
   const dateLocale = getDateLocale(locale);
 
   async function loadMessages(locale) {
-    const { ok, data } = await httpGet(`${basePath}/intl/messages/${locale}.json`);
+    const { ok, data } = await get(`${basePath}/intl/messages/${locale}.json`);
 
     if (ok) {
       messages[locale] = data;
@@ -61,5 +61,3 @@ export function useLocale() {
 
   return { locale, saveLocale, messages, dir, dateLocale };
 }
-
-export default useLocale;

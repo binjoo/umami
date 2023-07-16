@@ -245,12 +245,6 @@
       "value": "共有リンクを有効にする"
     }
   ],
-  "label.event-data": [
-    {
-      "type": 0,
-      "value": "Event data"
-    }
-  ],
   "label.events": [
     {
       "type": 0,
@@ -267,12 +261,6 @@
     {
       "type": 0,
       "value": "すべて表示"
-    }
-  ],
-  "label.funnel": [
-    {
-      "type": 0,
-      "value": "Funnel"
     }
   ],
   "label.join": [
@@ -449,12 +437,6 @@
       "value": "Queries"
     }
   ],
-  "label.query": [
-    {
-      "type": 0,
-      "value": "Query"
-    }
-  ],
   "label.query-parameters": [
     {
       "type": 0,
@@ -497,12 +479,6 @@
       "value": "Remove"
     }
   ],
-  "label.reports": [
-    {
-      "type": 0,
-      "value": "Reports"
-    }
-  ],
   "label.required": [
     {
       "type": 0,
@@ -537,12 +513,6 @@
     {
       "type": 0,
       "value": "Screens"
-    }
-  ],
-  "label.select-date": [
-    {
-      "type": 0,
-      "value": "Select date"
     }
   ],
   "label.select-website": [
@@ -683,12 +653,6 @@
       "value": "不明"
     }
   ],
-  "label.urls": [
-    {
-      "type": 0,
-      "value": "URLs"
-    }
-  ],
   "label.user": [
     {
       "type": 0,
@@ -729,12 +693,6 @@
     {
       "type": 0,
       "value": "訪問者数"
-    }
-  ],
-  "label.website": [
-    {
-      "type": 0,
-      "value": "Website"
     }
   ],
   "label.website-id": [
@@ -803,32 +761,10 @@
       "value": "'s statistics?"
     }
   ],
-  "message.delete-account": [
-    {
-      "type": 0,
-      "value": "To delete this account, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
-    }
-  ],
   "message.delete-website": [
     {
       "type": 0,
-      "value": "To delete this website, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
+      "value": "Webサイトの削除"
     }
   ],
   "message.delete-website-warning": [
@@ -922,15 +858,7 @@
   "message.reset-website": [
     {
       "type": 0,
-      "value": "To reset this website, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
+      "value": "Reset statistics"
     }
   ],
   "message.reset-website-warning": [
@@ -1015,12 +943,6 @@
     {
       "type": 0,
       "value": "からの訪問者"
-    }
-  ],
-  "messages.no-results-found": [
-    {
-      "type": 0,
-      "value": "No results were found."
     }
   ],
   "messages.no-team-websites": [

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import useApi from 'hooks/useApi';
 import useUser from 'hooks/useUser';
 
-export function useRequireLogin() {
+export default function useRequireLogin() {
   const router = useRouter();
   const { get } = useApi();
   const { user, setUser } = useUser();
@@ -26,5 +26,3 @@ export function useRequireLogin() {
 
   return { user };
 }
-
-export default useRequireLogin;

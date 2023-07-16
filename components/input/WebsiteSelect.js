@@ -19,6 +19,7 @@ export function WebsiteSelect({ websiteId, onSelect }) {
       onChange={onSelect}
       alignment="end"
       placeholder={formatMessage(labels.selectWebsite)}
+      style={{ width: 200 }}
     >
       {({ id, name }) => <Item key={id}>{name}</Item>}
     </Dropdown>

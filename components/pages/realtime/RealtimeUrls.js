@@ -10,7 +10,6 @@ export function RealtimeUrls({ websiteDomain, data = {} }) {
   const { formatMessage, labels } = useMessages();
   const { pageviews } = data;
   const [filter, setFilter] = useState(FILTER_REFERRERS);
-  const limit = 15;
 
   const buttons = [
     {
@@ -48,8 +47,7 @@ export function RealtimeUrls({ websiteDomain, data = {} }) {
             }
             return arr;
           }, [])
-          .sort(firstBy('y', -1))
-          .slice(0, limit),
+          .sort(firstBy('y', -1)),
       );
 
       const pages = percentFilter(
@@ -64,8 +62,7 @@ export function RealtimeUrls({ websiteDomain, data = {} }) {
             }
             return arr;
           }, [])
-          .sort(firstBy('y', -1))
-          .slice(0, limit),
+          .sort(firstBy('y', -1)),
       );
 
       return [referrers, pages];

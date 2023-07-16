@@ -50,9 +50,6 @@ export async function resetWebsite(
   const { client, transaction } = prisma;
 
   return transaction([
-    client.eventData.deleteMany({
-      where: { websiteId },
-    }),
     client.websiteEvent.deleteMany({
       where: { websiteId },
     }),
@@ -91,11 +88,6 @@ export async function deleteWebsite(
       where: { websiteId },
     }),
     client.teamWebsite.deleteMany({
-      where: {
-        websiteId,
-      },
-    }),
-    client.report.deleteMany({
       where: {
         websiteId,
       },

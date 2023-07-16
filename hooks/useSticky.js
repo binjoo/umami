@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-export function useSticky({ enabled = true, threshold = 1 }) {
+export default function useSticky({ enabled = true, threshold = 1 }) {
   const [isSticky, setIsSticky] = useState(false);
   const ref = useRef(null);
 
@@ -21,5 +21,3 @@ export function useSticky({ enabled = true, threshold = 1 }) {
 
   return { ref, isSticky };
 }
-
-export default useSticky;

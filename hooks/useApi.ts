@@ -7,7 +7,7 @@ import useStore from 'store/app';
 
 const selector = state => state.shareToken;
 
-export function useApi() {
+export default function useApi() {
   const { basePath } = useRouter();
   const shareToken = useStore(selector);
 
@@ -18,5 +18,3 @@ export function useApi() {
 
   return { get, post, put, del, ...reactQuery };
 }
-
-export default useApi;

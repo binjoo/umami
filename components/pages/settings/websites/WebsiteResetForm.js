@@ -13,7 +13,7 @@ import useMessages from 'hooks/useMessages';
 const CONFIRM_VALUE = 'RESET';
 
 export function WebsiteResetForm({ websiteId, onSave, onClose }) {
-  const { formatMessage, labels, messages, FormattedMessage } = useMessages();
+  const { formatMessage, labels, messages } = useMessages();
   const { post, useMutation } = useApi();
   const { mutate, error } = useMutation(data => post(`/websites/${websiteId}/reset`, data));
 
@@ -28,12 +28,7 @@ export function WebsiteResetForm({ websiteId, onSave, onClose }) {
 
   return (
     <Form onSubmit={handleSubmit} error={error}>
-      <p>
-        <FormattedMessage
-          {...messages.resetWebsite}
-          values={{ confirmation: <b>{CONFIRM_VALUE}</b> }}
-        />
-      </p>
+      <p>{formatMessage(messages.resetWebsite, { confirmation: CONFIRM_VALUE })}</p>
       <FormRow label={formatMessage(labels.confirm)}>
         <FormInput name="confirm" rules={{ validate: value => value === CONFIRM_VALUE }}>
           <TextField autoComplete="off" />

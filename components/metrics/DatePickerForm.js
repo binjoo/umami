@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, ButtonGroup, Calendar } from 'react-basics';
 import { isAfter, isBefore, isSameDay } from 'date-fns';
 import useLocale from 'hooks/useLocale';
+import { getDateRangeValues } from 'lib/date';
 import { getDateLocale } from 'lib/lang';
 import { FILTER_DAY, FILTER_RANGE } from 'lib/constants';
 import useMessages from 'hooks/useMessages';
@@ -18,7 +19,7 @@ export function DatePickerForm({
   const [selected, setSelected] = useState(
     isSameDay(defaultStartDate, defaultEndDate) ? FILTER_DAY : FILTER_RANGE,
   );
-  const [singleDate, setSingleDate] = useState(defaultStartDate);
+  const [date, setDate] = useState(defaultStartDate);
   const [startDate, setStartDate] = useState(defaultStartDate);
   const [endDate, setEndDate] = useState(defaultEndDate);
   const { locale } = useLocale();
@@ -26,14 +27,14 @@ export function DatePickerForm({
 
   const disabled =
     selected === FILTER_DAY
-      ? isAfter(minDate, singleDate) && isBefore(maxDate, singleDate)
+      ? isAfter(minDate, date) && isBefore(maxDate, date)
       : isAfter(startDate, endDate);
 
   const handleSave = () => {
     if (selected === FILTER_DAY) {
-      onChange(`range:${singleDate.getTime()}:${singleDate.getTime()}`);
+      onChange({ ...getDateRangeValues(date, date), value: 'custom' });
     } else {
-      onChange(`range:${startDate.getTime()}:${endDate.getTime()}`);
+      onChange({ ...getDateRangeValues(startDate, endDate), value: 'custom' });
     }
   };
 
@@ -47,12 +48,7 @@ export function DatePickerForm({
       </div>
       <div className={styles.calendars}>
         {selected === FILTER_DAY && (
-          <Calendar
-            date={singleDate}
-            minDate={minDate}
-            maxDate={maxDate}
-            onChange={setSingleDate}
-          />
+          <Calendar date={date} minDate={minDate} maxDate={maxDate} onChange={setDate} />
         )}
         {selected === FILTER_RANGE && (
           <>

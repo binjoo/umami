@@ -3,7 +3,7 @@ import { getTimezone } from 'lib/date';
 import { getItem, setItem } from 'next-basics';
 import { TIMEZONE_CONFIG } from 'lib/constants';
 
-export function useTimezone() {
+export default function useTimezone() {
   const [timezone, setTimezone] = useState(getItem(TIMEZONE_CONFIG) || getTimezone());
 
   const saveTimezone = useCallback(
@@ -16,5 +16,3 @@ export function useTimezone() {
 
   return [timezone, saveTimezone];
 }
-
-export default useTimezone;

@@ -7,7 +7,7 @@ import {
   Modal,
   ModalTrigger,
   Text,
-  useToasts,
+  useToast,
 } from 'react-basics';
 import TeamWebsitesTable from 'components/pages/settings/teams/TeamWebsitesTable';
 import TeamAddWebsiteForm from 'components/pages/settings/teams/TeamAddWebsiteForm';
@@ -15,7 +15,7 @@ import useApi from 'hooks/useApi';
 import useMessages from 'hooks/useMessages';
 
 export function TeamWebsites({ teamId }) {
-  const { showToast } = useToasts();
+  const { toast, showToast } = useToast();
   const { formatMessage, labels, messages } = useMessages();
   const { get, useQuery } = useApi();
   const { data, isLoading, refetch } = useQuery(['teams:websites', teamId], () =>
@@ -48,6 +48,7 @@ export function TeamWebsites({ teamId }) {
 
   return (
     <div>
+      {toast}
       <ActionForm description={formatMessage(messages.teamWebsitesInfo)}>{addButton}</ActionForm>
       {hasData && <TeamWebsitesTable teamId={teamId} data={data} onSave={handleSave} />}
     </div>

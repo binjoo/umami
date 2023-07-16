@@ -1,7 +1,7 @@
 import { useIntl, FormattedMessage } from 'react-intl';
 import { messages, labels } from 'components/messages';
 
-export function useMessages() {
+export default function useMessages() {
   const { formatMessage } = useIntl();
 
   function getMessage(id) {
@@ -12,5 +12,3 @@ export function useMessages() {
 
   return { formatMessage, FormattedMessage, messages, labels, getMessage };
 }
-
-export default useMessages;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Icon, Modal, ModalTrigger, useToasts, Text, Flexbox } from 'react-basics';
+import { Button, Icon, Modal, ModalTrigger, useToast, Text, Flexbox } from 'react-basics';
 import EmptyPlaceholder from 'components/common/EmptyPlaceholder';
 import TeamAddForm from 'components/pages/settings/teams/TeamAddForm';
 import PageHeader from 'components/layout/PageHeader';
@@ -9,17 +9,14 @@ import Icons from 'components/icons';
 import TeamJoinForm from './TeamJoinForm';
 import useApi from 'hooks/useApi';
 import useMessages from 'hooks/useMessages';
-import { ROLES } from 'lib/constants';
-import useUser from 'hooks/useUser';
 
 export default function TeamsList() {
-  const { user } = useUser();
   const { formatMessage, labels, messages } = useMessages();
   const [update, setUpdate] = useState(0);
   const { get, useQuery } = useApi();
   const { data, isLoading, error } = useQuery(['teams', update], () => get(`/teams`));
   const hasData = data && data.length !== 0;
-  const { showToast } = useToasts();
+  const { toast, showToast } = useToast();
 
   const handleSave = () => {
     setUpdate(state => state + 1);
@@ -51,25 +48,22 @@ export default function TeamsList() {
   );
 
   const createButton = (
-    <>
-      {user.role !== ROLES.viewOnly && (
-        <ModalTrigger>
-          <Button variant="primary">
-            <Icon>
-              <Icons.Plus />
-            </Icon>
-            <Text>{formatMessage(labels.createTeam)}</Text>
-          </Button>
-          <Modal title={formatMessage(labels.createTeam)}>
-            {close => <TeamAddForm onSave={handleSave} onClose={close} />}
-          </Modal>
-        </ModalTrigger>
-      )}
-    </>
+    <ModalTrigger>
+      <Button variant="primary">
+        <Icon>
+          <Icons.Plus />
+        </Icon>
+        <Text>{formatMessage(labels.createTeam)}</Text>
+      </Button>
+      <Modal title={formatMessage(labels.createTeam)}>
+        {close => <TeamAddForm onSave={handleSave} onClose={close} />}
+      </Modal>
+    </ModalTrigger>
   );
 
   return (
     <Page loading={isLoading} error={error}>
+      {toast}
       <PageHeader title={formatMessage(labels.teams)}>
         {hasData && (
           <Flexbox gap={10}>

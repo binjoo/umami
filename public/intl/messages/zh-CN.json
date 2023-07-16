@@ -245,12 +245,6 @@
       "value": "启用共享链接"
     }
   ],
-  "label.event-data": [
-    {
-      "type": 0,
-      "value": "Event data"
-    }
-  ],
   "label.events": [
     {
       "type": 0,
@@ -267,12 +261,6 @@
     {
       "type": 0,
       "value": "原始"
-    }
-  ],
-  "label.funnel": [
-    {
-      "type": 0,
-      "value": "Funnel"
     }
   ],
   "label.join": [
@@ -449,12 +437,6 @@
       "value": "查询"
     }
   ],
-  "label.query": [
-    {
-      "type": 0,
-      "value": "Query"
-    }
-  ],
   "label.query-parameters": [
     {
       "type": 0,
@@ -497,12 +479,6 @@
       "value": "移除"
     }
   ],
-  "label.reports": [
-    {
-      "type": 0,
-      "value": "Reports"
-    }
-  ],
   "label.required": [
     {
       "type": 0,
@@ -537,12 +513,6 @@
     {
       "type": 0,
       "value": "屏幕尺寸"
-    }
-  ],
-  "label.select-date": [
-    {
-      "type": 0,
-      "value": "Select date"
     }
   ],
   "label.select-website": [
@@ -683,12 +653,6 @@
       "value": "未知"
     }
   ],
-  "label.urls": [
-    {
-      "type": 0,
-      "value": "URLs"
-    }
-  ],
   "label.user": [
     {
       "type": 0,
@@ -729,12 +693,6 @@
     {
       "type": 0,
       "value": "访客"
-    }
-  ],
-  "label.website": [
-    {
-      "type": 0,
-      "value": "Website"
     }
   ],
   "label.website-id": [
@@ -811,32 +769,10 @@
       "value": " 的数据吗?"
     }
   ],
-  "message.delete-account": [
-    {
-      "type": 0,
-      "value": "To delete this account, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
-    }
-  ],
   "message.delete-website": [
     {
       "type": 0,
-      "value": "To delete this website, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
+      "value": "删除网站"
     }
   ],
   "message.delete-website-warning": [
@@ -930,15 +866,7 @@
   "message.reset-website": [
     {
       "type": 0,
-      "value": "To reset this website, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
+      "value": "重置统计数据"
     }
   ],
   "message.reset-website-warning": [
@@ -1027,12 +955,6 @@
     {
       "type": 0,
       "value": " 浏览器进行访问。"
-    }
-  ],
-  "messages.no-results-found": [
-    {
-      "type": 0,
-      "value": "No results were found."
     }
   ],
   "messages.no-team-websites": [

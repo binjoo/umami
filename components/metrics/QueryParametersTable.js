@@ -9,7 +9,7 @@ import styles from './QueryParametersTable.module.css';
 
 const filters = {
   [FILTER_RAW]: emptyFilter,
-  [FILTER_COMBINED]: [emptyFilter, paramFilter],
+  [FILTER_COMBINED]: paramFilter,
 };
 
 export function QueryParametersTable({ websiteId, showFilters, ...props }) {

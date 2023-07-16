@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Breadcrumbs, Item, Tabs, useToasts, Button, Text, Icon, Icons } from 'react-basics';
+import { Breadcrumbs, Item, Tabs, useToast, Button, Text, Icon, Icons } from 'react-basics';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Page from 'components/layout/Page';
@@ -17,7 +17,7 @@ export function WebsiteSettings({ websiteId }) {
   const { formatMessage, labels, messages } = useMessages();
   const { openExternal } = useConfig();
   const { get, useQuery } = useApi();
-  const { showToast } = useToasts();
+  const { toast, showToast } = useToast();
   const { data, isLoading } = useQuery(
     ['website', websiteId],
     () => get(`/websites/${websiteId}`),
@@ -51,6 +51,7 @@ export function WebsiteSettings({ websiteId }) {
 
   return (
     <Page loading={isLoading || !values}>
+      {toast}
       <PageHeader
         title={
           <Breadcrumbs>

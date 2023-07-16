@@ -4,7 +4,16 @@ import { NextApiResponse } from 'next';
 import { methodNotAllowed, ok } from 'next-basics';
 import { getUserWebsites } from 'queries';
 
-export default async (req: NextApiRequestQueryBody, res: NextApiResponse) => {
+export interface WebsitesRequestBody {
+  name: string;
+  domain: string;
+  shareId: string;
+}
+
+export default async (
+  req: NextApiRequestQueryBody<any, WebsitesRequestBody>,
+  res: NextApiResponse,
+) => {
   await useCors(req, res);
   await useAuth(req, res);
 

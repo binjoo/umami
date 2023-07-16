@@ -9,10 +9,8 @@ export function LanguageButton() {
   const { locale, saveLocale, dir } = useLocale();
   const items = Object.keys(languages).map(key => ({ ...languages[key], value: key }));
 
-  function handleSelect(value, close, e) {
-    e.stopPropagation();
+  function handleSelect(value) {
     saveLocale(value);
-    close();
   }
 
   return (
@@ -23,28 +21,24 @@ export function LanguageButton() {
         </Icon>
       </Button>
       <Popup position="bottom" alignment={dir === 'rtl' ? 'start' : 'end'}>
-        {close => {
-          return (
-            <div className={styles.menu}>
-              {items.map(({ value, label }) => {
-                return (
-                  <div
-                    key={value}
-                    className={classNames(styles.item, { [styles.selected]: value === locale })}
-                    onClick={handleSelect.bind(null, value, close)}
-                  >
-                    <Text>{label}</Text>
-                    {value === locale && (
-                      <Icon className={styles.icon}>
-                        <Icons.Check />
-                      </Icon>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        }}
+        <div className={styles.menu}>
+          {items.map(({ value, label }) => {
+            return (
+              <div
+                key={value}
+                className={classNames(styles.item, { [styles.selected]: value === locale })}
+                onClick={handleSelect.bind(null, value)}
+              >
+                <Text>{label}</Text>
+                {value === locale && (
+                  <Icon className={styles.icon}>
+                    <Icons.Check />
+                  </Icon>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </Popup>
     </PopupTrigger>
   );

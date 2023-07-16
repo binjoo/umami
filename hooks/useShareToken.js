@@ -4,7 +4,7 @@ import useApi from './useApi';
 
 const selector = state => state.shareToken;
 
-export function useShareToken(shareId) {
+export default function useShareToken(shareId) {
   const shareToken = useStore(selector);
   const { get } = useApi();
 
@@ -24,5 +24,3 @@ export function useShareToken(shareId) {
 
   return shareToken;
 }
-
-export default useShareToken;

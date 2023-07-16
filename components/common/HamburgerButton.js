@@ -15,6 +15,7 @@ export function HamburgerButton() {
       label: formatMessage(labels.dashboard),
       url: '/dashboard',
     },
+    { label: formatMessage(labels.realtime), url: '/realtime' },
     !cloudMode && {
       label: formatMessage(labels.settings),
       url: '/settings',

@@ -122,13 +122,13 @@
   "label.create-team": [
     {
       "type": 0,
-      "value": "Team erstellen"
+      "value": "Erstelle Team"
     }
   ],
   "label.create-user": [
     {
       "type": 0,
-      "value": "Benutzer erstellen"
+      "value": "Erstelle Nutzer"
     }
   ],
   "label.created": [
@@ -182,13 +182,13 @@
   "label.delete-team": [
     {
       "type": 0,
-      "value": "Team löschen"
+      "value": "Lösche Team"
     }
   ],
   "label.delete-user": [
     {
       "type": 0,
-      "value": "Benutzer löschen"
+      "value": "Lösche Nutzer"
     }
   ],
   "label.delete-website": [
@@ -245,12 +245,6 @@
       "value": "Freigabe-URL aktivieren"
     }
   ],
-  "label.event-data": [
-    {
-      "type": 0,
-      "value": "Event data"
-    }
-  ],
   "label.events": [
     {
       "type": 0,
@@ -267,12 +261,6 @@
     {
       "type": 0,
       "value": "Rohdaten"
-    }
-  ],
-  "label.funnel": [
-    {
-      "type": 0,
-      "value": "Funnel"
     }
   ],
   "label.join": [
@@ -308,7 +296,7 @@
   "label.last-days": [
     {
       "type": 0,
-      "value": "Letzte "
+      "value": "Letzten "
     },
     {
       "type": 1,
@@ -322,7 +310,7 @@
   "label.last-hours": [
     {
       "type": 0,
-      "value": "Letzte "
+      "value": "Letzten "
     },
     {
       "type": 1,
@@ -445,12 +433,6 @@
       "value": "Abfragen"
     }
   ],
-  "label.query": [
-    {
-      "type": 0,
-      "value": "Query"
-    }
-  ],
   "label.query-parameters": [
     {
       "type": 0,
@@ -484,19 +466,13 @@
   "label.regions": [
     {
       "type": 0,
-      "value": "Regionen"
+      "value": "Regions"
     }
   ],
   "label.remove": [
     {
       "type": 0,
       "value": "Entfernen"
-    }
-  ],
-  "label.reports": [
-    {
-      "type": 0,
-      "value": "Reports"
     }
   ],
   "label.required": [
@@ -533,12 +509,6 @@
     {
       "type": 0,
       "value": "Bildschirmauflösungen"
-    }
-  ],
-  "label.select-date": [
-    {
-      "type": 0,
-      "value": "Select date"
     }
   ],
   "label.select-website": [
@@ -664,7 +634,7 @@
   "label.tracking-code": [
     {
       "type": 0,
-      "value": "Tracking Code"
+      "value": "Tracking Kennung"
     }
   ],
   "label.unique-visitors": [
@@ -679,16 +649,10 @@
       "value": "Unbekannt"
     }
   ],
-  "label.urls": [
-    {
-      "type": 0,
-      "value": "URLs"
-    }
-  ],
   "label.user": [
     {
       "type": 0,
-      "value": "Benutzer"
+      "value": "User"
     }
   ],
   "label.username": [
@@ -700,13 +664,13 @@
   "label.users": [
     {
       "type": 0,
-      "value": "Benutzer"
+      "value": "Users"
     }
   ],
   "label.view": [
     {
       "type": 0,
-      "value": "Anzeigen"
+      "value": "View"
     }
   ],
   "label.view-details": [
@@ -727,16 +691,10 @@
       "value": "Besucher"
     }
   ],
-  "label.website": [
-    {
-      "type": 0,
-      "value": "Website"
-    }
-  ],
   "label.website-id": [
     {
       "type": 0,
-      "value": "Webseite ID"
+      "value": "Website ID"
     }
   ],
   "label.websites": [
@@ -827,32 +785,10 @@
       "value": " zurücksetzen wollen?"
     }
   ],
-  "message.delete-account": [
-    {
-      "type": 0,
-      "value": "To delete this account, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
-    }
-  ],
   "message.delete-website": [
     {
       "type": 0,
-      "value": "To delete this website, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
+      "value": "Webseite löschen"
     }
   ],
   "message.delete-website-warning": [
@@ -874,7 +810,7 @@
     },
     {
       "type": 0,
-      "value": " auf "
+      "value": " on "
     },
     {
       "type": 1,
@@ -934,7 +870,7 @@
   "message.no-users": [
     {
       "type": 0,
-      "value": "Hier gibt es keine Benutzer."
+      "value": "Hier gibt es keine Nutzer."
     }
   ],
   "message.page-not-found": [
@@ -946,15 +882,7 @@
   "message.reset-website": [
     {
       "type": 0,
-      "value": "To reset this website, type "
-    },
-    {
-      "type": 1,
-      "value": "confirmation"
-    },
-    {
-      "type": 0,
-      "value": " in the box below to confirm."
+      "value": "Statistik zurücksetzen"
     }
   ],
   "message.reset-website-warning": [
@@ -972,7 +900,15 @@
   "message.share-url": [
     {
       "type": 0,
-      "value": "Ihre Webseitenstatistik ist unter der folgenden URL öffentlich zugänglich:"
+      "value": "Dies ist die öffentliche URL zum Teilen für "
+    },
+    {
+      "type": 1,
+      "value": "target"
+    },
+    {
+      "type": 0,
+      "value": "."
     }
   ],
   "message.team-already-member": [
@@ -990,13 +926,13 @@
   "message.tracking-code": [
     {
       "type": 0,
-      "value": "Tracking Code"
+      "value": "Tracking Kennung"
     }
   ],
   "message.user-deleted": [
     {
       "type": 0,
-      "value": "Benutzer gelöscht."
+      "value": "Nutzer gelöscht."
     }
   ],
   "message.visitor-log": [
@@ -1031,12 +967,6 @@
     {
       "type": 1,
       "value": "device"
-    }
-  ],
-  "messages.no-results-found": [
-    {
-      "type": 0,
-      "value": "No results were found."
     }
   ],
   "messages.no-team-websites": [

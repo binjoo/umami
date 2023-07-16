@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
 
-export function useEscapeKey(handler) {
+export default function useEscapeKey(handler) {
   const escFunction = useCallback(event => {
     if (event.keyCode === 27) {
       handler(event);
@@ -17,5 +17,3 @@ export function useEscapeKey(handler) {
 
   return null;
 }
-
-export default useEscapeKey;

@@ -3,7 +3,7 @@ import { Loading } from 'react-basics';
 import { useRouter } from 'next/router';
 import { setClientAuthToken } from 'lib/client';
 
-export default function () {
+export default function SingleSignOnPage() {
   const router = useRouter();
   const { token, url } = router.query;
 
